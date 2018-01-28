@@ -1,6 +1,6 @@
 setTimeout(function(){
     window.location.reload(1);
-}, tempoRefresh); // Tempo para atualização da página
+}, temporefresh); // Tempo para atualização da página
 
 
 var elem = document.getElementsByTagName('table');
@@ -33,11 +33,12 @@ for (i = 0; i < elem.childNodes.length; i++) {
         console.log("contOpen++");
         contOpen++;
     }
-   if(nome.data === "QA N1" && sistema.data === sistema1 || nome.data === "QA N1" && sistema.data === sistema2 || nome.data === "QA N1" && sistema.data === sistema3) //Sistemas escolhidos para avisar
-    {  console.log("Encontrado");
-        sistemas.push(" "+sistema.data);
-        contSistema++;
-    }
+    for (var cont = 0; cont < sistemasx.length; cont++){
+      if(nome.data === "QA N1" && sistema.data === sistemasx[cont]) //Sistemas escolhidos para avisar
+        {  console.log("Encontrado");
+            sistemas.push(" "+sistema.data);
+           contSistema++;
+       }}
     //console.log(nome.data+" está com o defeito "+id.data+" do sistema "+sistema.data);
 }
 if(contMe !== 0){
