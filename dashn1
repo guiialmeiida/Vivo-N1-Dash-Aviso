@@ -43,10 +43,10 @@ for (i = 0; i < elem.childNodes.length; i++) {
 }
 if(contMe !== 0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                "\nVocê está com "+contMe+" defeito(s)!"+"\nSistemas escolhidos em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
+                "\nVocê está com "+contMe+" defeito(s)!"+"\nSistemas escolhidos em aberto: "+contSistema+" - "+sistemas, timeout: 5000, title: "VIVO N1"});
     GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
 }else{
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                "\nVocê não possui defeitos"+"\nSistemas escolhidos em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
+                "\nVocê não possui defeitos"+"\nSistemas escolhidos em aberto: "+contSistema+" - "+sistemas, timeout: 5000, title: "VIVO N1"});
 }
 console.log("Total: "+elem.childNodes.length+" defeitos");
