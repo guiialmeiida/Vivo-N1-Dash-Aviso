@@ -1,3 +1,8 @@
+setTimeout(function(){
+    window.location.reload(1);
+}, tempoRefresh); // Tempo para atualização da página
+
+
 var elem = document.getElementsByTagName('table');
 var elem = elem[2];
 var elem = elem.childNodes[2];
@@ -44,7 +49,3 @@ if(contMe !== 0){
                 "\nVocê não possui defeitos"+"\nSistemas escolhidos em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
 }
 console.log("Total: "+elem.childNodes.length+" defeitos");
-
-setTimeout(function(){
-    window.location.reload(1);
-}, tempoRefresh); // Tempo para atualização da página
