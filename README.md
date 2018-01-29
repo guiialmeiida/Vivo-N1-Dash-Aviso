@@ -32,7 +32,7 @@ Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes 
 ```
 - Salvar.
 - Abrir ele novamente e clicar em Externos.
-- Editar o primeiro Requires com seu nome, 3 sistemas de sua preferência para ser avisado e o tempo de refresh da página (onde 30000 milissegundos são 30 segundos).
+- Editar o primeiro Requires com seu nome, os sistemas de sua preferência para ser avisado e o tempo de refresh da página (onde 30000 milissegundos são 30 segundos). Salvar.
 - Após isso, só dar um F5 na dashboard. 
 
 
