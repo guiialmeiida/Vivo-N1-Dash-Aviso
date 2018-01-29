@@ -2,6 +2,8 @@
 
 Script criado para rodar na extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR){:target="_blank"}.
 
+<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR" target="_blank">Tampermonkey</a>
+
 Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes especificaçoes: 
 
 + Quantidade de defeitos na fila.
