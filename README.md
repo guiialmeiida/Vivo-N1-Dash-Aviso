@@ -1,8 +1,6 @@
 # Dashboard N1 Aviso
 
-Script criado para rodar na extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR){:target="_blank"}.
-
-<a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR" target="_blank">Tampermonkey</a>
+Script criado para rodar na extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR).
 
 Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes especificaçoes: 
 
@@ -15,7 +13,7 @@ Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes 
 
 # Instalação
 
-- Baixar a extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR){:target="_blank"}.
+- Baixar a extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR).
 - Clicar em "Adicionar novo script...".
 - Colar o script:
 ```go
