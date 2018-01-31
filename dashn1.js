@@ -45,18 +45,22 @@ if(contMe !== 0 && contSistema !==0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
     GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
+    GM_notification({text: "AAAAAAAAAAAAAAAAAAA", timeout: 5000, title: "MEUS QC'S" });
 }else if(contMe !== 0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê está com "+contMe+" defeito(s)!", timeout: 5000, title: "VIVO N1"});
     GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
+    GM_notification({text: "AAAAAAAAAAAAAAAAAAA", timeout: 5000, title: "MEUS QC'S" });
 }
 
 else if(contSistema !==0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê não possui defeitos"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
+    GM_notification({text: "AAAAAAAAAAAAAAAAAAA", timeout: 5000, title: "MEUS QC'S" });
 }
 else{
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê não possui defeitos", timeout: 5000, title: "VIVO N1"});
+    GM_notification({text: "AAAAAAAAAAAAAAAAAAA", timeout: 5000, title: "MEUS QC'S" });
 }
 console.log("Total: "+elem.childNodes.length+" defeitos");
