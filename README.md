@@ -26,7 +26,7 @@ Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes 
 // @match        http://svuxqsoa113:9010/*
 // @grant        GM_notification
 // @grant        window.focus
-// @require      https://raw.githubusercontent.com/correamth/dashn1/master/sistemaenome
+// @require      https://raw.githubusercontent.com/correamth/dashn1/master/sistemaenome.js
 // @require      https://raw.githubusercontent.com/correamth/dashn1/master/dashn1.js
 // @icon         https://forum.vivo.com.br/attachment.php?attachmentid=737&d=1418039499
 // ==/UserScript==
