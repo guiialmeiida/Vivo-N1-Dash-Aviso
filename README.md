@@ -2,6 +2,8 @@
 
 Script criado para rodar na extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR).
 
+[Script](https://raw.githubusercontent.com/correamth/dashn1/master/dashaviso.user.js).
+
 Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes especificaçoes: 
 
 + Quantidade de defeitos na fila.
