@@ -37,7 +37,7 @@ for (i = 0; i < elem.childNodes.length; i++) {
         contOpen++;
     }
     for (var cont = 0; cont < sistemasx.length; cont++){
-      if(nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont]) //Sistemas escolhidos para avisar
+      if(nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont]) 
         {  
            sistemas.push(" "+sistema.data);
            contSistema++;
@@ -46,11 +46,11 @@ for (i = 0; i < elem.childNodes.length; i++) {
 if(contMe !== 0 && contSistema !==0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "AMBIENTES"});
-    GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
+    GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  
 }else if(contMe !== 0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                 "\nVocê está com "+contMe+" defeito(s)!", timeout: 5000, title: "AMBIENTES N1"});
-    GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
+    GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  
 }
 else if(contSistema !==0){
     GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
