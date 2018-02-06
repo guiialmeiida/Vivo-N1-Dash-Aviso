@@ -1,4 +1,4 @@
-# Dashboard N1 Aviso
+# Dashboard aviso N1 e Ambientes
 
 Script criado para rodar na extensão [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=pt-BR).
 
