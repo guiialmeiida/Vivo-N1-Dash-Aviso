@@ -1,7 +1,7 @@
 
 // ==UserScript==
 // @name         Aviso Dashboard Ambientes
-// @version      1.0 Beta
+// @version      1.1 Beta
 // @description  Aviso no Windows de quantos defeitos possuem na fila de Ambientes
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashn1
