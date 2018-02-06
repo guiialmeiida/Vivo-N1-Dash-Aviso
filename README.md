@@ -20,4 +20,4 @@ Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes 
 - Clicar em Editar no primeiro Requires, adicionar seu nome, os sistemas de sua preferência para ser avisado e o tempo de refresh da página (onde 30000 milissegundos são 30 segundos). Salvar.
 - Após isso, só dar um F5 na dashboard. 
 
-![Super wide](http://placekitten.com/1280/800)
+![Super wide](dashaviso/img.png)
