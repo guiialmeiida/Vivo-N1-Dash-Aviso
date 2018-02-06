@@ -15,7 +15,7 @@ Desenvolvido em JavaScript, ele apresenta um aviso no Windows, com as seguintes 
 
 # Instalação
 
-- Clicar no [Script](https://raw.githubusercontent.com/correamth/dashn1/master/dashaviso.user.js) irá abrir uma aba no Tampermonkey então clicar em instalar.
+- Clicar no [Script N1](https://raw.githubusercontent.com/correamth/dashaviso/master/dashavison1.user.js) ou [Script Ambientes](https://raw.githubusercontent.com/correamth/dashaviso/master/dashavisoambientes.user.js) irá abrir uma aba no Tampermonkey então clicar em instalar.
 - Seguir a [Imagem](https://github.com/correamth/dashn1/blob/master/img.png) - Abrir a extensão clicando em dashboard, clicar no script e ir na opção Externos, logo após, clicar F5 para exibir os botões.
 - Clicar em Editar no primeiro Requires, adicionar seu nome, os sistemas de sua preferência para ser avisado e o tempo de refresh da página (onde 30000 milissegundos são 30 segundos). Salvar.
 - Após isso, só dar um F5 na dashboard. 
