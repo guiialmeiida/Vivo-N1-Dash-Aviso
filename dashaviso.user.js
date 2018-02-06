@@ -5,6 +5,7 @@
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashn1
 // @match        http://svuxqsoa113:9010/*
+// @match        http://10.41.252.111:9010/*
 // @grant        GM_notification
 // @grant        window.focus
 // @require      https://raw.githubusercontent.com/correamth/dashn1/master/sistemaenome.js
