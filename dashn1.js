@@ -18,8 +18,13 @@ for (i = 0; i < elem.childNodes.length; i++) {
     id = row.childNodes[1];
     id = id.childNodes[0];
     id = id.childNodes[0];
-    sistema = row.childNodes[5];
-    sistema = sistema.childNodes[0];
+     sistema1 = row.childNodes[5];
+    if (sistema1.childNodes.length !== 0){
+        sistema = sistema1.childNodes[0];
+    }else{
+        sistema = sistema1;
+        sistema.data = "Sem sistema";
+    }
     sla = row.childNodes[9];
     sla = sla.childNodes[0];
 
