@@ -45,8 +45,8 @@ try{
             console.log("contOpen++");
             contOpen++;
             if (opcionalcores === "yes"){
-                row.style = "background-color:black; color: white";
-                id2.style = "color:white";
+                row.style = corbg+";"+fonte;
+                id2.style = fonte;
                 sla2.style = "color:black";
             }
         }
