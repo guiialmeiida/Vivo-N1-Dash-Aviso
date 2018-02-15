@@ -31,6 +31,7 @@ try{
         var slaData = parseInt(slaArray[0]);
         severity2 = row.childNodes[7];
         severity = severity2.childNodes[0];
+        sla2.style="color:black";
 
         if(nome.data === seunome) //Seu nome
         {
@@ -46,7 +47,7 @@ try{
             if (opcionalcores === "yes"){
                 row.style = "background-color:black; color: white";
                 id2.style = "color:white";
-                sla2.style = "background-color:black";
+                sla2.style = "color:black";
             }
         }
         for (var cont = 0; cont < sistemasx.length; cont++){
@@ -61,11 +62,12 @@ try{
             sla2.style = "background-color:Tomato; color: black";
 
         }
+
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
             sla2.style = "background-color:Tomato; color: black";
         }
         if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
-            severity2.style = "font-weight: bold";
+            severity2.style = "font-weight: bold; color:red";
         }
     }
 
@@ -93,4 +95,3 @@ catch(err) {
     GM_notification({text: "Atualmente não existe defeito(s) aberto(s)!", timeout: 5000, title: "VIVO N1"});
     console.log(err);
 }
-
