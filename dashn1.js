@@ -30,7 +30,12 @@ try{
         var slaArray = sla.data.split(" ");
         var slaData = parseInt(slaArray[0]);
         severity2 = row.childNodes[7];
-        severity = severity2.childNodes[0];
+        if (severity2.childNodes.length !== 0){
+            severity = severity2.childNodes[0];
+        }else{
+            severity = severity2;
+            severity.data = "Sem prioridade";
+        }
         sla2.style="color:black";
 
         if(nome.data === seunome) //Seu nome
