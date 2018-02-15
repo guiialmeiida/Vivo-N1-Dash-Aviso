@@ -62,7 +62,7 @@ try{
 
         }
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:red";
+            sla2.style = "background-color:red; color:black";
         }
         if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
             severity2.style = "color:red";
