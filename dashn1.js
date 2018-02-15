@@ -29,6 +29,8 @@ try{
         sla = sla2.childNodes[0];
         var slaArray = sla.data.split(" ");
         var slaData = parseInt(slaArray[0]);
+        severity2 = row.childNodes[7];
+        severity = severity2.childNodes[0];
 
         if(nome.data === seunome) //Seu nome
         {
