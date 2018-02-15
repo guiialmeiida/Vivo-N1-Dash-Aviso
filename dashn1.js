@@ -58,14 +58,14 @@ try{
 
         //console.log(nome.data+" está com o defeito "+id.data+" do sistema "+sistema.data);
         if(slaData >= 20 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:red; color: black";
+            sla2.style = "background-color:Tomato; color: black";
 
         }
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:red; color:black";
+            sla2.style = "background-color:Tomato; color: black";
         }
         if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
-            severity2.style = "color:red";
+            severity2.style = "font-weight: bold";
         }
     }
 
