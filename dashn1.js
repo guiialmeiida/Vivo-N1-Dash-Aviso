@@ -63,19 +63,30 @@ try{
             }}
 
         //console.log(nome.data+" está com o defeito "+id.data+" do sistema "+sistema.data);
-        if(slaData >= 20 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:Tomato; color: black";
+        if(slaData >= 10 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            sla2.style = "background-color:goldenrod; color: black";
+
+        }
+         if(slaData >= 30 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            sla2.style = "background-color:tomato; color: black";
 
         }
 
+         for (var cont = 0; cont < sistemasx.length; cont++){
+        if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && nome.data=== "QA N1"){
+              sistema1.style = "color:green";
+              id2.style = "color:green";
+        }}
+
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:Tomato; color: black";
+            sla2.style = "background-color:tomato; color: black";
         }
         if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
             severity2.style = "font-weight: bold; color:red";
         }
     }
 
+    // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
     if(contMe !== 0 && contSistema !==0){
         GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                          "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
