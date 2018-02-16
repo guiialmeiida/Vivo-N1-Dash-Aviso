@@ -63,7 +63,7 @@ try{
             }}
 
         //console.log(nome.data+" está com o defeito "+id.data+" do sistema "+sistema.data);
-        if(slaData >= 10 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+        if(slaData >= 20 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
             sla2.style = "background-color:goldenrod; color: black";
 
         }
