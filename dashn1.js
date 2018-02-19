@@ -3,133 +3,141 @@ setTimeout(function(){
 }, temporefresh); // Tempo para atualização da página
 
 try{
-    var elem = document.getElementsByTagName('table');
-    var elem = elem[2];
-    var elem = elem.childNodes[2];
+	//Declaração das váriaveis
+    var tabela = document.gettabelaentsByTagName('table'); //Retorna todas as tabelas como HTML Collection
+    var tabela = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
+    var tabela = tabela.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
     var defeitos = [];
     var sistemas = [];
     contMe = 0;
     contOpen = 0;
     contSistema = 0;
-    for (i = 0; i < elem.childNodes.length; i++) {
-        row = elem.childNodes[i];
-        nome = row.childNodes[0];
+	
+	//For principal, onde vai percorer cada linha por vez
+    for (i = 0; i < tabela.childNodes.length; i++) {
+		
+		//Seleciona os elementos em questão dentro da linha
+        linha = tabela.childNodes[i];
+        nome = linha.childNodes[0];
         nome = nome.childNodes[0];
-        id = row.childNodes[1];
-        id2 = id.childNodes[0];
-        id = id2.childNodes[0];
-        sistema1 = row.childNodes[5];
-        if (sistema1.childNodes.length !== 0){
-            sistema = sistema1.childNodes[0];
+        id = linha.childNodes[1];
+        idRef = id.childNodes[0];
+        id = idRef.childNodes[0];
+        sistemaRef = linha.childNodes[5];
+		slaRef = linha.childNodes[9];
+        sla = slaRef.childNodes[0];
+        var slaArray = sla.data.split(" ");
+        var slaData = parseInt(slaArray[0]);
+        severityRef = linha.childNodes[7];
+		projectRef = linha.childNodes[3];
+		domainRef = linha.childNodes[2];
+		
+		//If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
+        if (sistemaRef.childNodes.length !== 0){ 
+            sistema = sistemaRef.childNodes[0];
         }else{
-            sistema = sistema1;
+            sistema = sistemaRef;
             sistema.data = "Sem sistema";
         }
-                domain1 = row.childNodes[2];
-        if (domain1.childNodes.length !== 0){
-            domain = domain1.childNodes[0];
+        if (domainRef.childNodes.length !== 0){
+            domain = domainRef.childNodes[0];
         }else{
-            domain = domain1;
+            domain = domainRef;
             domain.data = "Sem dominio";
         }
-        project1 = row.childNodes[3];
-        if (project1.childNodes.length !== 0){
-            project = project1.childNodes[0];
+        if (projectRef.childNodes.length !== 0){
+            project = projectRef.childNodes[0];
         }else{
-            project = project1;
+            project = projectRef;
             project.data = "Sem projeto";
         }
-
-        link = document.createElement('a');
-        project1.removeChild(project);
-        project1.appendChild(link);
-        link = project1.childNodes[0];
+        if (severityRef.childNodes.length !== 0){
+            severity = severityRef.childNodes[0];
+        }else{
+            severity = severityRef;
+            severity.data = "Sem prioridade";
+        }
+		
+		//Montagem do elemento link, do ALM, dentro do elemento project em cada linha
+        link = document.createtabelaent('a');
+        projectRef.removeChild(project);
+        projectRef.appendChild(link);
+        link = projectRef.childNodes[0];
         link.text = project.data;
         link.href = "td://"+project.data+"."+domain.data+".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID="+id.data;
         
-        sla2 = row.childNodes[9];
-        sla = sla2.childNodes[0];
-        var slaArray = sla.data.split(" ");
-        var slaData = parseInt(slaArray[0]);
-        severity2 = row.childNodes[7];
-        if (severity2.childNodes.length !== 0){
-            severity = severity2.childNodes[0];
-        }else{
-            severity = severity2;
-            severity.data = "Sem prioridade";
-        }
-        sla2.style="color:black";
-
+		// Pinta os elementos importantes para ficar fácil a localização na tabela
+        slaRef.style="color:black";
         if(nome.data === seunome) //Seu nome
         {
             contMe++;
-            defeitos.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data);
+            defeitos.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data); //Guarda os sistemas que estão no seu nome
             console.log(id.data+" está comigo");
             if (opcionalcores === "yes"){
-                row.style = "background-color:#F0E68C";}
+                linha.style = "background-color:#F0E68C";}
         }
         if(nome.data === "QA N1"){
             console.log("contOpen++");
-            contOpen++;
+            contOpen++; //Conta quantos defeitos estão como QA N1
             if (opcionalcores === "yes"){
-                row.style = corbg+";"+fonte;
-                id2.style = fonte;
-                sla2.style = "color:black";
+                linha.style = corbg+";"+fonte;
+                idRef.style = fonte;
+                slaRef.style = "color:black";
             }
         }
         for (var cont = 0; cont < sistemasx.length; cont++){
-            if(nome.data === "QA N1" && sistema.data === sistemasx[cont]) //Sistemas escolhidos para avisar
-            {  console.log("Encontrado");
-             sistemas.push(" "+sistema.data);
-             contSistema++;
-            }}
-
-        //console.log(nome.data+" está com o defeito "+id.data+" do sistema "+sistema.data);
+            if(nome.data === "QA N1" && sistema.data === sistemasx[cont]){ //Sistemas escolhidos para avisar
+				console.log("Encontrado");
+				sistemas.push(" "+sistema.data);
+				contSistema++;
+            }
+		}
         if(slaData >= 20 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:goldenrod; color: black";
+            slaRef.style = "background-color:goldenrod; color: black";
 
         }
          if(slaData >= 30 && nome.data === "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:tomato; color: black";
+            slaRef.style = "background-color:tomato; color: black";
 
         }
-
-         for (var cont = 0; cont < sistemasx.length; cont++){
-        if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && nome.data=== "QA N1"){
-              sistema1.style = "color:green";
-              id2.style = "color:green";
-        }}
-
+        for (var cont = 0; cont < sistemasx.length; cont++){
+			if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && nome.data=== "QA N1"){
+				  sistemaRef.style = "color:green";
+				  idRef.style = "color:green";
+			}
+		}
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
-            sla2.style = "background-color:tomato; color: black";
+            slaRef.style = "background-color:tomato; color: black";
         }
         if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
-            severity2.style = "font-weight: bold; color:red";
+            severityRef.style = "font-weight: bold; color:red";
         }
     }
 
     // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
-    if(contMe !== 0 && contSistema !==0){
+    if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
         GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                          "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
         GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
-    }else if(contMe !== 0){
+    }else if(contMe !== 0 && avisoOpcional === "yes"){
         GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                          "\nVocê está com "+contMe+" defeito(s)!", timeout: 5000, title: "VIVO N1"});
         GM_notification({text: "Detalhado(s): "+defeitos, timeout: 5000, title: "MEUS QC'S" });  //Opcional, avisa os QC's no seu nome
     }
 
-    else if(contSistema !==0){
+    else if(contSistema !==0 && avisoOpcional === "yes"){
         GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                          "\nVocê não possui defeitos"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: 5000, title: "VIVO N1"});
     }
-    else{
+    else if(avisoOpcional === "yes"){
         GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
                          "\nVocê não possui defeitos", timeout: 5000, title: "VIVO N1"});
     }
-    console.log("Total: "+elem.childNodes.length+" defeitos");
+    console.log("Total: "+tabela.childNodes.length+" defeitos");
 }
 catch(err) {
+	if(avisoOpcional === "yes"){
     GM_notification({text: "Atualmente não existe defeito(s) aberto(s)!", timeout: 5000, title: "VIVO N1"});
+	}
     console.log(err);
 }
