@@ -25,6 +25,28 @@ try{
             sistema = sistema1;
             sistema.data = "Sem sistema";
         }
+                domain1 = row.childNodes[2];
+        if (domain1.childNodes.length !== 0){
+            domain = domain1.childNodes[0];
+        }else{
+            domain = domain1;
+            domain.data = "Sem dominio";
+        }
+        project1 = row.childNodes[3];
+        if (project1.childNodes.length !== 0){
+            project = project1.childNodes[0];
+        }else{
+            project = project1;
+            project.data = "Sem projeto";
+        }
+
+        link = document.createElement('a');
+        project1.removeChild(project);
+        project1.appendChild(link);
+        link = project1.childNodes[0];
+        link.text = project.data;
+        link.href = "td://"+project.data+"."+domain.data+".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID="+id.data;
+        
         sla2 = row.childNodes[9];
         sla = sla2.childNodes[0];
         var slaArray = sla.data.split(" ");
