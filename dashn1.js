@@ -59,7 +59,7 @@ try{
         }
 		
 		//Montagem do elemento link, do ALM, dentro do elemento project em cada linha
-        link = document.createtabelaent('a');
+        link = document.createElement('a');
         projectRef.removeChild(project);
         projectRef.appendChild(link);
         link = projectRef.childNodes[0];
