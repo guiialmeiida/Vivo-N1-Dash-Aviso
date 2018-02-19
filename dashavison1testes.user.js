@@ -8,7 +8,7 @@
 // @match        http://10.41.252.111:9010/*
 // @grant        GM_notification
 // @grant        window.focus
-// @require      https://raw.githubusercontent.com/quesmues/dashaviso/master/sistemaenome.js
+// @require      https://raw.githubusercontent.com/quesmues/dashaviso/master/configuracoes.js
 // @require      https://raw.githubusercontent.com/quesmues/dashaviso/master/dashn1.js
 // @icon         https://forum.vivo.com.br/attachment.php?attachmentid=737&d=1418039499
 // ==/UserScript==
