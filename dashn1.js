@@ -67,7 +67,7 @@ try{
         link.href = "td://"+project.data+"."+domain.data+".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID="+id.data;
         
 		// Pinta os elementos importantes para ficar fácil a localização na tabela
-        slaRef.style="color:black";
+        //slaRef.style="color:black";
         if(nome.data === seunome) //Seu nome
         {
             contMe++;
@@ -82,7 +82,8 @@ try{
             if (opcionalcores === "yes"){
                 linha.style = corbg+";"+fonte;
                 idRef.style = fonte;
-                slaRef.style = "color:black";
+                link.style = corbg+";"+fonte;
+                //slaRef.style = "color:black";
             }
         }
         for (var cont = 0; cont < sistemasx.length; cont++){
@@ -102,8 +103,8 @@ try{
         }
         for (var cont = 0; cont < sistemasx.length; cont++){
 			if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && nome.data=== "QA N1"){
-				  sistemaRef.style = "color:green";
-				  idRef.style = "color:green";
+				  sistemaRef.style = "color:green;font-weight: bold";
+				  idRef.style = "color:green;font-weight: bold";
 			}
 		}
         if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
