@@ -4,7 +4,7 @@ setTimeout(function(){
 
 try{
 	//Declaração das váriaveis
-    var tabela = document.gettabelaentsByTagName('table'); //Retorna todas as tabelas como HTML Collection
+    var tabela = document.getElementsByTagName('table'); //Retorna todas as tabelas como HTML Collection
     var tabela = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
     var tabela = tabela.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
     var defeitos = [];
