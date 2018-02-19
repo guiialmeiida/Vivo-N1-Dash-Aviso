@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Aviso Dashboard N1
-// @version      1.5.7 Color - Versão Testes
+// @version      0.5.8 Color - Versão Testes
 // @description  Aviso no Windows de quantos defeitos possuem na fila do N1
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashaviso
