@@ -3,7 +3,7 @@
 // @version      0.5.8 Color - Versão Testes
 // @description  Aviso no Windows de quantos defeitos possuem na fila do N1
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
-// @source       https://github.com/correamth/dashaviso
+// @source       https://github.com/quesmues/dashaviso
 // @match        http://svuxqsoa113:9010/*
 // @match        http://10.41.252.111:9010/*
 // @grant        GM_notification
