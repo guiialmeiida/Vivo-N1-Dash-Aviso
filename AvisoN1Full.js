@@ -1,15 +1,3 @@
-// ==UserScript==
-// @name         Aviso Dashboard N1
-// @version      2.0 Beta
-// @description  Plugin dashboard: avisos e cores.
-// @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
-// @match        http://svuxqsoa113:9010/*
-// @match        http://10.41.252.111:9010/*
-// @grant        GM_notification
-// @grant        window.focus
-// @icon         https://forum.vivo.com.br/attachment.php?attachmentid=737&d=1418039499
-// ==/UserScript==
-
 var tabela = document.getElementsByTagName('table'); //Retorna todas as tabelas como HTML Collection
 var tabela2 = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
 var tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
