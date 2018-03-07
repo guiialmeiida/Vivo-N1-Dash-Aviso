@@ -18,7 +18,7 @@ var avisoOpcionalMeusDefeitos = "";
 var backgroungDefAberto = "background-color:#D3DDEB";
 var fonteDefAberto = "color:black";
 var tempoVidaNotif = 5000;
-var monitorarqc = [""]; //testes
+var monitorarqc = [""]; //testes, colocar o id do defeito que deseja monitorar 
 
 //Chamada function principal
 main();
