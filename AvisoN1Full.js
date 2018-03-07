@@ -18,7 +18,7 @@ var avisoOpcionalMeusDefeitos = "";
 var backgroungDefAberto = "background-color:#D3DDEB";
 var fonteDefAberto = "color:black";
 var tempoVidaNotif = 5000;
-var monitorarqc = ["632"];
+var monitorarqc = [""]; //testes
 
 //Chamada function principal
 main();
