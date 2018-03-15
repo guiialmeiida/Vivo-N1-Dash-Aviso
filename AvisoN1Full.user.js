@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Aviso Dashboard Ambientes
+// @name         Aviso Dashboard N1
 // @version      2.0 Beta
 // @description  Notificação dos defeitos, opções layout
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
