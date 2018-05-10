@@ -18,7 +18,7 @@ var avisoOpcionalMeusDefeitos = "";
 var backgroungDefAberto = "background-color:#D3DDEB";
 var fonteDefAberto = "color:black";
 var tempoVidaNotif = 5000;
-var monitorarqc = [""]; //testes, colocar o id do defeito que deseja monitorar 
+var monitorarqc = [""]; //testes, colocar o id do defeito que deseja monitorar
 
 //Chamada function principal
 main();
@@ -50,9 +50,11 @@ function menuExtra(){
     botoes.appendChild(botoesRef);
     botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
+    botoesRef = document.createElement('td');
+    botoes.appendChild(botoesRef);
 
 
-    //Seleciona o novo td
+   //Seleciona o novo td
     colunas = botoes.childNodes[5];
     colunas0 = botoes.childNodes[6];
     colunas7 = botoes.childNodes[7];
@@ -62,7 +64,8 @@ function menuExtra(){
     colunas2 = botoes.childNodes[11];
     colunas6 = botoes.childNodes[12];
     colunas3 = botoes.childNodes[13];
-
+    colunas9 = botoes.childNodes[14];
+    colunas10 = botoes.childNodes[15];
 
 
 
@@ -87,15 +90,61 @@ function menuExtra(){
     input6Text.innerHTML = "Aviso meus QC's:";
     input6Text.style ="Color: #FFFAFA ";
 
+    input9Text = document.createElement('LABEL');
+    colunas9.appendChild(input9Text);
+    input9Text.innerHTML = "Ambientes:";
+    input9Text.style ="Color: #FFFAFA ";
+
     input7Text = document.createElement('input');
     colunas7.appendChild(input7Text);
 
+    // =============================************************************===============================================
+
+     //___________check ambientes
+    input109Text = document.createElement('input');// checkbox
+    colunas10.appendChild(input109Text);// checkbox
+    //Seleciona o campo criado
+
+    input109Text =colunas10.childNodes[0];// checkbox
+    input109Text.type = "checkbox";
+    var meuStorage = localStorage;
+    var ok109 = meuStorage.getItem('ok109');
+    if(ok109 === null || ok109 === "" || ok109 === "false"){
+        ok109 = "false";
+        input109Text.checked = false;
+    }else{
+        ok109 = "true";
+        input109Text.checked = true;
+    }
+
+    input109Text.onclick = function () {
+        var okBo109 = "";
+        if(ok109 === "false"){
+
+            okBo109 = "true";
+        }else{
+            ok109 = "true";
+
+            okBo109 = "false";
+        }
+        meuStorage.setItem('ok109', okBo109);
+        window.location.reload(1);
+    };
+    if (ok109==="true" ){
+        var optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
+    }
+    else
+        optionAmbientes = "nao";
+
+    console.log(optionAmbientes);
+
+
+   // =============================************************************===============================================
     //___________check cores
     input1Text = document.createElement('input');
     colunas1.appendChild(input1Text);
     input1Text =colunas1.childNodes[0];
     input1Text.type = "checkbox";
-    var meuStorage = localStorage;
     var ok = meuStorage.getItem('ok');
     if(ok === null || ok === "" || ok === "false"){
         ok = "false";
@@ -305,7 +354,15 @@ function link(projectRef, project, domain, id){
 
 function main(){
     try{
+
         var sistemasx = menuExtra();
+        var meuStorage = localStorage;
+        var ok109 = meuStorage.getItem('ok109');
+        var optionAmbientes = "nao";
+        if (ok109==="true" ){
+            optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
+        }
+        var ambientes = optionAmbientes;
         //For principal, onde vai percorer cada linha por vez
         for (i = 0; i < tabela.childNodes.length; i++) {
             //Seleciona os elementos em questão dentro da linha
@@ -316,8 +373,12 @@ function main(){
             idRef = id.childNodes[0];
             id = idRef.childNodes[0];
             sistemaRef = linha.childNodes[5];
+            if (ambientes == "sim"){
+            slaRef = linha.childNodes[8];
+            sla = slaRef.childNodes[0];}
+            else{
             slaRef = linha.childNodes[9];
-            sla = slaRef.childNodes[0];
+            sla = slaRef.childNodes[0];}
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
             severityRef = linha.childNodes[7];
@@ -365,7 +426,7 @@ function main(){
                 if (opcionalcores === "yes"){
                     linha.style = "background-color:#F0E68C";}
             }
-            if(nome.data === "QA N1"){
+            if(nome.data === "QA N1" ||nome.data === "QA Gestão Ambientes"){
                 console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
                 if (opcionalcores === "yes"){
@@ -381,22 +442,22 @@ function main(){
                 link.style = backgroungDefAberto+";"+fonteDefAberto;
             }
             for (var cont = 0; cont < sistemasx.length; cont++){
-                if(nome.data=== "QA N1"  && sistema.data === sistemasx[cont]){
+                if(nome.data=== "QA N1"  && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes"  && sistema.data === sistemasx[cont]){
                     console.log("Encontrado");
                     sistemas.push(" "+sistema.data);
                     contSistema++;
                 }
             }
-            if(slaData >= 20 && nome.data=== "QA N1" && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            if(slaData >= 20 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
                 slaRef.style = "background-color:goldenrod; color: black";
 
             }
-            if(slaData >= 30 && nome.data=== "QA N1"  && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            if(slaData >= 30 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" )  && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
                 slaRef.style = "background-color:tomato; color: black";
 
             }
             for (cont = 0; cont < sistemasx.length; cont++){
-                if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && nome.data=== "QA N1" ){
+                if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) ){
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                 }
@@ -415,22 +476,30 @@ function main(){
             if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
                 severityRef.style = "font-weight: bold; color:red";
             }
+            console.log(sistema.data);
         }
 
         // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
+        var tit = 'limpo';
+        if(ambientes === 'sim'){
+         tit = 'VIVO AMBIENTES' ;
+
+        }else
+            tit = 'VIVO N1' ;
+
         if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: "VIVO N1"});
+                             "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
         }else if(contMe !== 0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê está com "+contMe+" defeito(s)!", timeout: tempoVidaNotif, title: "VIVO N1"});
+                             "\nVocê está com "+contMe+" defeito(s)!", timeout: tempoVidaNotif, title: tit});
         } else if(contSistema !==0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê não possui defeitos"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: "VIVO N1"});
+                             "\nVocê não possui defeitos"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
         }
         else if(avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê não possui defeitos", timeout: tempoVidaNotif, title: "VIVO N1"});
+                             "\nVocê não possui defeitos", timeout: tempoVidaNotif, title: tit});
         } if(contMe !== 0 && avisoOpcionalMeusDefeitos === "yes"){
             GM_notification({text: "Detalhado(s): "+defeitos, timeout: tempoVidaNotif, title: "MEUS QC'S" });
         }
@@ -443,9 +512,9 @@ function main(){
     catch(err) {
         var page_title = document.getElementsByClassName("page_title");
         if(avisoOpcional === "yes" && page_title !== null){
-            GM_notification({text: "Atualmente não existe defeito(s) aberto(s)!", timeout: tempoVidaNotif, title: "VIVO N1"});
+            GM_notification({text: "Atualmente não existe defeito(s) aberto(s)!", timeout: tempoVidaNotif, title: tit});
         }else{
-            GM_notification({text: "Página não foi carregada!", timeout: tempoVidaNotif, title: "VIVO N1"});
+            GM_notification({text: "Página não foi carregada!", timeout: tempoVidaNotif, title: tit});
         }
         console.log(err);
     }
