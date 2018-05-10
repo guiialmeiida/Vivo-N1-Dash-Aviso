@@ -53,15 +53,15 @@ function menuExtra(){
 
 
     //Seleciona o novo td
-    colunas = botoes.childNodes[3];
-    colunas0 = botoes.childNodes[4];
-    colunas7 = botoes.childNodes[5];
-    colunas4 = botoes.childNodes[6];
-    colunas1 = botoes.childNodes[7];
-    colunas5 = botoes.childNodes[8];
-    colunas2 = botoes.childNodes[9];
-    colunas6 = botoes.childNodes[10];
-    colunas3 = botoes.childNodes[11];
+    colunas = botoes.childNodes[5];
+    colunas0 = botoes.childNodes[6];
+    colunas7 = botoes.childNodes[7];
+    colunas4 = botoes.childNodes[8];
+    colunas1 = botoes.childNodes[9];
+    colunas5 = botoes.childNodes[10];
+    colunas2 = botoes.childNodes[11];
+    colunas6 = botoes.childNodes[12];
+    colunas3 = botoes.childNodes[13];
 
 
 
