@@ -4,9 +4,7 @@
 // @description  Notificação dos defeitos, opções layout
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashaviso
-// @match        http://svuxqsoa113:9010/*
-// @match        http://10.41.252.111:9010/*
-// @match        http://svuxqsoa115:7010/*
+// @match        */controle-demanda/defectMonitoring.jsf?search=N1*
 // @grant        GM_notification
 // @grant        window.focus
 // @require      https://raw.githubusercontent.com/correamth/dashaviso/master/AvisoN1Full.js
