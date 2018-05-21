@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Aviso Dashboard N1
-// @version      2.1 Beta
+// @version      2.2 Beta
 // @description  Notificação dos defeitos, opções layout
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashaviso
-// @match        */controle-demanda/defectMonitoring.jsf?search=N1*
+// @match        */controle-demanda/defectMonitoring*
 // @grant        GM_notification
 // @grant        window.focus
 // @require      https://raw.githubusercontent.com/correamth/dashaviso/master/AvisoN1Full.js
