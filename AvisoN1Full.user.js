@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Aviso Dashboard N1
-// @version      2.2 Beta
+// @name         Aviso Dashboard
+// @version      2.3 Beta
 // @description  Notificação dos defeitos, opções layout
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashaviso
