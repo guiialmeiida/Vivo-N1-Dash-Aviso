@@ -377,6 +377,8 @@ function main(){
             else{
             slaRef = linha.childNodes[9];
             sla = slaRef.childNodes[0];}
+            var status = linha.childNodes[10];
+            status = status.childNodes[0];
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
             var severityRef = linha.childNodes[7];
@@ -479,6 +481,9 @@ function main(){
                 idRef.style = fonteDefAberto;
                 link.style = backgroundDefAberto+";"+fonteDefAberto;
                 linha.childNodes[0].style = "background-color:#8defd1; color: black";
+            }
+            if(nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject"){
+                 linha.childNodes[0].style = "background-color:#8defd1; color: black";
             }
             
         }
