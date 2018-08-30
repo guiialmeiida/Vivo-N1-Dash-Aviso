@@ -7,6 +7,7 @@ var sistemas = [];
 var qcs = [];
 var contMe = 0,
 contOpen = 0,
+contOpenComp = 0,
 contDiminuiTotal = 0,
 contSistema = 0,
 contQcs =0;
@@ -426,7 +427,7 @@ function main(){
                 if (opcionalCores === "yes"){
                     linha.style = "background-color:#F0E68C";}
             }
-            if(nome.data === "QA N1" ||nome.data === "QA Gestão Ambientes"){
+            if(nome.data === "QA N1" ||nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 "){
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
                 if (opcionalCores === "yes"){
@@ -436,13 +437,16 @@ function main(){
                     //slaRef.style = "color:black";
                 }
             }
+            if(nome.data === "Compasso N1 "){
+                contOpenComp++;
+            }
             if(nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes" ){
                 linha.style = backgroundDefAberto+";"+fonteDefAberto;
                 idRef.style = fonteDefAberto;
                 link.style = backgroundDefAberto+";"+fonteDefAberto;
             }
             for (var cont = 0; cont < sistemasx.length; cont++){
-                if(nome.data=== "QA N1" && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont]){
+                if(nome.data=== "QA N1" && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data=== "Compasso N1 " && sistema.data === sistemasx[cont]){
                     console.log("Encontrado");
                     sistemas.push(" "+sistema.data);
                     contSistema++;
@@ -498,7 +502,7 @@ function main(){
             tit = 'VIVO N1' ;}
 
         if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
+            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+" "+contOpenComp+" são Compasso N1"+
                              "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
         }else if(contMe !== 0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
