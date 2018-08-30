@@ -446,7 +446,7 @@ function main(){
                 link.style = backgroundDefAberto+";"+fonteDefAberto;
             }
             for (var cont = 0; cont < sistemasx.length; cont++){
-                if(nome.data=== "QA N1" && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data=== "Compasso N1 " && sistema.data === sistemasx[cont]){
+                if(nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data=== "Compasso N1 " && sistema.data === sistemasx[cont]){
                     console.log("Encontrado");
                     sistemas.push(" "+sistema.data);
                     contSistema++;
@@ -461,7 +461,7 @@ function main(){
 
             }
             for (cont = 0; cont < sistemasx.length; cont++){
-                if(opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) ){
+                if(opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" ||nome.data=== "QA Gestão Ambientes" || nome.data === "Compasso N1 ") ){
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                 }
