@@ -478,7 +478,9 @@ function main(){
                 linha.style = backgroundDefAberto+";"+fonteDefAberto;
                 idRef.style = fonteDefAberto;
                 link.style = backgroundDefAberto+";"+fonteDefAberto;
+                linha.childNodes[0].style = "background-color:#8defd1; color: black";
             }
+            
         }
 
 
