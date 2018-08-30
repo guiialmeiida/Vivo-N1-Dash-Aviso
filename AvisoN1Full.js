@@ -502,7 +502,7 @@ function main(){
             tit = 'VIVO N1' ;}
 
         if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+" "+contOpenComp+" são Compasso N1"+
+            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+" "+contOpenComp+" Compasso N1"+
                              "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
         }else if(contMe !== 0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
