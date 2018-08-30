@@ -1,24 +1,22 @@
 var tabela = document.getElementsByTagName('table'); //Retorna todas as tabelas como HTML Collection
 var tabela2 = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
-var tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
-
-//tabela2.removeChild(tabela); //Teste de Fila Vazia
-//var tabela = tabela2.childNodes[2]; //Teste de Fila Vazia
+tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
 
 var defeitos = [];
 var sistemas = [];
 var qcs = [];
-contMe = 0;
-contOpen = 0;
-contSistema = 0;
+var contMe = 0,
+contOpen = 0,
+contDiminuiTotal = 0,
+contSistema = 0,
 contQcs =0;
-var opcionalcores = "";
+var opcionalCores = "";
 var avisoOpcional = "";
 var avisoOpcionalMeusDefeitos = "";
-var backgroungDefAberto = "background-color:#D3DDEB";
+var backgroundDefAberto = "background-color:#D3DDEB";
 var fonteDefAberto = "color:black";
 var tempoVidaNotif = 5000;
-var monitorarqc = [""]; //testes, colocar o id do defeito que deseja monitorar
+var monitorarQc = [""]; //testes, colocar o id do defeito que deseja monitorar
 
 //Chamada function principal
 main();
@@ -30,7 +28,7 @@ function menuExtra(){
     botoes = botoes.childNodes[1];
     botoes = botoes.childNodes[1];
     //Cria 1 novo td
-    botoesRef = document.createElement('td');
+    var botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
     botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
@@ -55,53 +53,53 @@ function menuExtra(){
 
 
    //Seleciona o novo td
-    colunas = botoes.childNodes[5];
-    colunas0 = botoes.childNodes[6];
-    colunas7 = botoes.childNodes[7];
-    colunas4 = botoes.childNodes[8];
-    colunas1 = botoes.childNodes[9];
-    colunas5 = botoes.childNodes[10];
-    colunas2 = botoes.childNodes[11];
-    colunas6 = botoes.childNodes[12];
-    colunas3 = botoes.childNodes[13];
-    colunas9 = botoes.childNodes[14];
+    var colunas = botoes.childNodes[5],
+    colunas0 = botoes.childNodes[6],
+    colunas7 = botoes.childNodes[7],
+    colunas4 = botoes.childNodes[8],
+    colunas1 = botoes.childNodes[9],
+    colunas5 = botoes.childNodes[10],
+    colunas2 = botoes.childNodes[11],
+    colunas6 = botoes.childNodes[12],
+    colunas3 = botoes.childNodes[13],
+    colunas9 = botoes.childNodes[14],
     colunas10 = botoes.childNodes[15];
 
 
 
     //Cria um campo input
-    inputText = document.createElement('input');
+    var inputText = document.createElement('input');
     colunas.appendChild(inputText);
-    input0Text = document.createElement('input');
+    var input0Text = document.createElement('input');
     colunas0.appendChild(input0Text);
 
-    input4Text = document.createElement('LABEL');
+    var input4Text = document.createElement('LABEL');
     colunas4.appendChild(input4Text);
     input4Text.innerHTML = "Cores:";
     input4Text.style ="Color: #FFFAFA ";
 
-    input5Text = document.createElement('LABEL');
+    var input5Text = document.createElement('LABEL');
     colunas5.appendChild(input5Text);
     input5Text.innerHTML = "Aviso:";
     input5Text.style ="Color: #FFFAFA ";
 
-    input6Text = document.createElement('LABEL');
+    var input6Text = document.createElement('LABEL');
     colunas6.appendChild(input6Text);
     input6Text.innerHTML = "Aviso meus QC's:";
     input6Text.style ="Color: #FFFAFA ";
 
-    input9Text = document.createElement('LABEL');
+    var input9Text = document.createElement('LABEL');
     colunas9.appendChild(input9Text);
     input9Text.innerHTML = "Ambientes:";
     input9Text.style ="Color: #FFFAFA ";
 
-    input7Text = document.createElement('input');
+    var input7Text = document.createElement('input');
     colunas7.appendChild(input7Text);
 
     // =============================************************************===============================================
 
      //___________check ambientes
-    input109Text = document.createElement('input');// checkbox
+    var input109Text = document.createElement('input');// checkbox
     colunas10.appendChild(input109Text);// checkbox
     //Seleciona o campo criado
 
@@ -133,15 +131,15 @@ function menuExtra(){
     if (ok109==="true" ){
         var optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
     }
-    else
-        optionAmbientes = "nao";
+    else{
+        optionAmbientes = "nao";}
 
-    console.log(optionAmbientes);
+    //console.log(optionAmbientes);
 
 
    // =============================************************************===============================================
     //___________check cores
-    input1Text = document.createElement('input');
+    var input1Text = document.createElement('input');
     colunas1.appendChild(input1Text);
     input1Text =colunas1.childNodes[0];
     input1Text.type = "checkbox";
@@ -168,11 +166,11 @@ function menuExtra(){
         window.location.reload(1);
     };
     if (ok==="true" ){
-        opcionalcores = "yes";
+        opcionalCores = "yes";
     }
 
     //___________check avisos
-    input2Text = document.createElement('input');// checkbox
+    var input2Text = document.createElement('input');// checkbox
     colunas2.appendChild(input2Text);// checkbox
     //Seleciona o campo criado
 
@@ -208,7 +206,7 @@ function menuExtra(){
 
     //___________check meus avisos
 
-    input3Text = document.createElement('input');// checkbox
+    var input3Text = document.createElement('input');// checkbox
     colunas3.appendChild(input3Text);// checkbox
 
     input3Text =colunas3.childNodes[0];// checkbox
@@ -256,8 +254,8 @@ function menuExtra(){
         }
         return true;
     };
-    console.log(botoes);
-    console.log(inputText);
+    /*console.log(botoes);
+    console.log(inputText);*/
 
 
     //_____________text tempo
@@ -281,7 +279,7 @@ function menuExtra(){
     };
 
 
-    var tempo =  meuStorage.getItem('tempo0');
+    var tempo = meuStorage.getItem('tempo0');
     if(tempo === null || tempo === "" || isNaN(tempo) === true){
         tempo = "30";
         input0Text.placeholder = "30 segundos refresh";
@@ -294,10 +292,10 @@ function menuExtra(){
         input0Text.placeholder = "30 segundos refresh";
     }
 
-    console.log(tempo+" valor");
+    /*console.log(tempo+" valor");
     console.log(botoes);
     console.log(temporefresh1+" segundos");
-    console.log(conver+" milissegundos");
+    console.log(conver+" milissegundos");*/ //validações
 
 
     var temporefresh = conver;
@@ -335,7 +333,7 @@ function menuExtra(){
     var sistemas3 = meuStorage.getItem('seussis');
 
     var sistemasarray = sistemas3.split(", ");
-    console.log(sistemasarray);
+    //console.log(sistemasarray);
     return sistemasarray;
 
 }
@@ -364,48 +362,48 @@ function main(){
         }
         var ambientes = optionAmbientes;
         //For principal, onde vai percorer cada linha por vez
-        for (i = 0; i < tabela.childNodes.length; i++) {
+        for (var i = 0; i < tabela.childNodes.length; i++) {
             //Seleciona os elementos em questão dentro da linha
-            linha = tabela.childNodes[i];
-            nome = linha.childNodes[0];
+            var linha = tabela.childNodes[i];
+            var nome = linha.childNodes[0];
             nome = nome.childNodes[0];
-            id = linha.childNodes[1];
-            idRef = id.childNodes[0];
+            var id = linha.childNodes[1];
+            var idRef = id.childNodes[0];
             id = idRef.childNodes[0];
-            sistemaRef = linha.childNodes[5];
+            var sistemaRef = linha.childNodes[5];
             if (ambientes == "sim"){
-            slaRef = linha.childNodes[8];
-            sla = slaRef.childNodes[0];}
+            var slaRef = linha.childNodes[8];
+            var sla = slaRef.childNodes[0];}
             else{
             slaRef = linha.childNodes[9];
             sla = slaRef.childNodes[0];}
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
-            severityRef = linha.childNodes[7];
-            projectRef = linha.childNodes[3];
-            domainRef = linha.childNodes[2];
+            var severityRef = linha.childNodes[7];
+            var projectRef = linha.childNodes[3];
+            var domainRef = linha.childNodes[2];
 
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0){
-                sistema = sistemaRef.childNodes[0];
+                var sistema = sistemaRef.childNodes[0];
             }else{
                 sistema = sistemaRef;
                 sistema.data = "Sem sistema";
             }
             if (domainRef.childNodes.length !== 0){
-                domain = domainRef.childNodes[0];
+                var domain = domainRef.childNodes[0];
             }else{
                 domain = domainRef;
                 domain.data = "Sem dominio";
             }
             if (projectRef.childNodes.length !== 0){
-                project = projectRef.childNodes[0];
+                var project = projectRef.childNodes[0];
             }else{
                 project = projectRef;
                 project.data = "Sem projeto";
             }
             if (severityRef.childNodes.length !== 0){
-                severity = severityRef.childNodes[0];
+                var severity = severityRef.childNodes[0];
             }else{
                 severity = severityRef;
                 severity.data = "Sem prioridade";
@@ -414,7 +412,7 @@ function main(){
 
             link(projectRef, project, domain, id);
 
-            var meuStorage = localStorage;
+            meuStorage = localStorage;
             var placeHolder = meuStorage.getItem('nome');
 
             // Pinta os elementos importantes para ficar fácil a localização na tabela
@@ -423,69 +421,74 @@ function main(){
                 contMe++;
                 defeitos.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data);
                 console.log(id.data+" está comigo");
-                if (opcionalcores === "yes"){
+                if (opcionalCores === "yes"){
                     linha.style = "background-color:#F0E68C";}
             }
             if(nome.data === "QA N1" ||nome.data === "QA Gestão Ambientes"){
-                console.log("contOpen++");
+                //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
-                if (opcionalcores === "yes"){
-                    linha.style = backgroungDefAberto+";"+fonteDefAberto;
+                if (opcionalCores === "yes"){
+                    linha.style = backgroundDefAberto+";"+fonteDefAberto;
                     idRef.style = fonteDefAberto;
-                    link.style = backgroungDefAberto+";"+fonteDefAberto;
+                    link.style = backgroundDefAberto+";"+fonteDefAberto;
                     //slaRef.style = "color:black";
                 }
             }
-            if(nome.data === "Matheus Canali Fossatti" && opcionalcores === "yes" || nome.data === "Laerte Loser" && opcionalcores === "yes" ){
-                linha.style = backgroungDefAberto+";"+fonteDefAberto;
+            if(nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes" ){
+                linha.style = backgroundDefAberto+";"+fonteDefAberto;
                 idRef.style = fonteDefAberto;
-                link.style = backgroungDefAberto+";"+fonteDefAberto;
+                link.style = backgroundDefAberto+";"+fonteDefAberto;
             }
             for (var cont = 0; cont < sistemasx.length; cont++){
-                if(nome.data=== "QA N1"  && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes"  && sistema.data === sistemasx[cont]){
+                if(nome.data=== "QA N1" && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont]){
                     console.log("Encontrado");
                     sistemas.push(" "+sistema.data);
                     contSistema++;
                 }
             }
-            if(slaData >= 20 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            if(slaData >= 20 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) && slaArray[1] === "Minute(s)" && opcionalCores === "yes"){
                 slaRef.style = "background-color:goldenrod; color: black";
 
             }
-            if(slaData >= 30 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" )  && slaArray[1] === "Minute(s)" && opcionalcores === "yes"){
+            if(slaData >= 30 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) && slaArray[1] === "Minute(s)" && opcionalCores === "yes"){
                 slaRef.style = "background-color:tomato; color: black";
 
             }
             for (cont = 0; cont < sistemasx.length; cont++){
-                if(opcionalcores === "yes" && sistema.data === sistemasx[cont] && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) ){
+                if(opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" ) ){
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                 }
             }
-             for (cont = 0; cont < monitorarqc.length; cont++){
-                if(opcionalcores === "yes" && id.data === monitorarqc[cont]){
+             for (cont = 0; cont < monitorarQc.length; cont++){
+                if(opcionalCores === "yes" && id.data === monitorarQc[cont]){
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                     qcs.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data);
                     contQcs++;
                 }
             }
-            if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalcores === "yes"){
+            if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes"){
                 slaRef.style = "background-color:tomato; color: black";
             }
-            if(severity.data === "4-Show Stopper" && opcionalcores === "yes"){
+            if(severity.data === "4-Show Stopper" && opcionalCores === "yes"){
                 severityRef.style = "font-weight: bold; color:red";
             }
-            console.log(sistema.data);
+            if(nome.data === "Compasso N1 "){
+                linha.style = backgroundDefAberto+";"+fonteDefAberto;
+                idRef.style = fonteDefAberto;
+                link.style = backgroundDefAberto+";"+fonteDefAberto;
+            }
         }
+
 
         // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
         var tit = 'limpo';
         if(ambientes === 'sim'){
          tit = 'VIVO AMBIENTES' ;
 
-        }else
-            tit = 'VIVO N1' ;
+        }else{
+            tit = 'VIVO N1' ;}
 
         if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
             GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
