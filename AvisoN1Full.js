@@ -6,11 +6,11 @@ var defeitos = [];
 var sistemas = [];
 var qcs = [];
 var contMe = 0,
-contOpen = 0,
-contOpenComp = 0,
-contDiminuiTotal = 0,
-contSistema = 0,
-contQcs =0;
+    contOpen = 0,
+    contOpenComp = 0,
+    contDiminuiTotal = 0,
+    contSistema = 0,
+    contQcs = 0;
 var opcionalCores = "";
 var avisoOpcional = "";
 var avisoOpcionalMeusDefeitos = "";
@@ -22,8 +22,7 @@ var monitorarQc = [""]; //testes, colocar o id do defeito que deseja monitorar
 //Chamada function principal
 main();
 
-function menuExtra(){
-
+function menuExtra() {
     //Seleciona a tabela onde o botão priorizar está
     var botoes = document.getElementById("fDefectsList:pgBtnPriorizar");
     botoes = botoes.childNodes[1];
@@ -52,21 +51,18 @@ function menuExtra(){
     botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
 
-
-   //Seleciona o novo td
+    //Seleciona o novo td
     var colunas = botoes.childNodes[5],
-    colunas0 = botoes.childNodes[6],
-    colunas7 = botoes.childNodes[7],
-    colunas4 = botoes.childNodes[8],
-    colunas1 = botoes.childNodes[9],
-    colunas5 = botoes.childNodes[10],
-    colunas2 = botoes.childNodes[11],
-    colunas6 = botoes.childNodes[12],
-    colunas3 = botoes.childNodes[13],
-    colunas9 = botoes.childNodes[14],
-    colunas10 = botoes.childNodes[15];
-
-
+        colunas0 = botoes.childNodes[6],
+        colunas7 = botoes.childNodes[7],
+        colunas4 = botoes.childNodes[8],
+        colunas1 = botoes.childNodes[9],
+        colunas5 = botoes.childNodes[10],
+        colunas2 = botoes.childNodes[11],
+        colunas6 = botoes.childNodes[12],
+        colunas3 = botoes.childNodes[13],
+        colunas9 = botoes.childNodes[14],
+        colunas10 = botoes.childNodes[15];
 
     //Cria um campo input
     var inputText = document.createElement('input');
@@ -77,51 +73,49 @@ function menuExtra(){
     var input4Text = document.createElement('LABEL');
     colunas4.appendChild(input4Text);
     input4Text.innerHTML = "Cores:";
-    input4Text.style ="Color: #FFFAFA ";
+    input4Text.style = "Color: #FFFAFA ";
 
     var input5Text = document.createElement('LABEL');
     colunas5.appendChild(input5Text);
     input5Text.innerHTML = "Aviso:";
-    input5Text.style ="Color: #FFFAFA ";
+    input5Text.style = "Color: #FFFAFA ";
 
     var input6Text = document.createElement('LABEL');
     colunas6.appendChild(input6Text);
     input6Text.innerHTML = "Aviso meus QC's:";
-    input6Text.style ="Color: #FFFAFA ";
+    input6Text.style = "Color: #FFFAFA ";
 
     var input9Text = document.createElement('LABEL');
     colunas9.appendChild(input9Text);
     input9Text.innerHTML = "Ambientes:";
-    input9Text.style ="Color: #FFFAFA ";
+    input9Text.style = "Color: #FFFAFA ";
 
     var input7Text = document.createElement('input');
     colunas7.appendChild(input7Text);
 
-    // =============================************************************===============================================
+    //===========================================================================================================
 
-     //___________check ambientes
-    var input109Text = document.createElement('input');// checkbox
-    colunas10.appendChild(input109Text);// checkbox
-    //Seleciona o campo criado
-
-    input109Text =colunas10.childNodes[0];// checkbox
+    //check ambientes
+    var input109Text = document.createElement('input'); // checkbox
+    colunas10.appendChild(input109Text); // checkbox
+	//Seleciona o campo criado
+    input109Text = colunas10.childNodes[0]; // checkbox
     input109Text.type = "checkbox";
     var meuStorage = localStorage;
     var ok109 = meuStorage.getItem('ok109');
-    if(ok109 === null || ok109 === "" || ok109 === "false"){
+    if (ok109 === null || ok109 === "" || ok109 === "false") {
         ok109 = "false";
         input109Text.checked = false;
-    }else{
+    } else {
         ok109 = "true";
         input109Text.checked = true;
     }
-
-    input109Text.onclick = function () {
+    input109Text.onclick = function() {
         var okBo109 = "";
-        if(ok109 === "false"){
+        if (ok109 === "false") {
 
             okBo109 = "true";
-        }else{
+        } else {
             ok109 = "true";
 
             okBo109 = "false";
@@ -129,36 +123,33 @@ function menuExtra(){
         meuStorage.setItem('ok109', okBo109);
         window.location.reload(1);
     };
-    if (ok109==="true" ){
+    if (ok109 === "true") {
         var optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
+    } else {
+        optionAmbientes = "nao";
     }
-    else{
-        optionAmbientes = "nao";}
 
     //console.log(optionAmbientes);
-
-
-   // =============================************************************===============================================
-    //___________check cores
+    //===========================================================================================================
+    //check cores
     var input1Text = document.createElement('input');
     colunas1.appendChild(input1Text);
-    input1Text =colunas1.childNodes[0];
+    input1Text = colunas1.childNodes[0];
     input1Text.type = "checkbox";
     var ok = meuStorage.getItem('ok');
-    if(ok === null || ok === "" || ok === "false"){
+    if (ok === null || ok === "" || ok === "false") {
         ok = "false";
         input1Text.checked = false;
-    }else{
+    } else {
         ok = "true";
         input1Text.checked = true;
     }
-
-    input1Text.onclick = function () {
+    input1Text.onclick = function() {
         var okBo = "";
-        if(ok === "false"){
+        if (ok === "false") {
 
             okBo = "true";
-        }else{
+        } else {
             ok = "true";
 
             okBo = "false";
@@ -166,33 +157,30 @@ function menuExtra(){
         meuStorage.setItem('ok', okBo);
         window.location.reload(1);
     };
-    if (ok==="true" ){
+    if (ok === "true") {
         opcionalCores = "yes";
     }
 
-    //___________check avisos
-    var input2Text = document.createElement('input');// checkbox
-    colunas2.appendChild(input2Text);// checkbox
-    //Seleciona o campo criado
-
-    input2Text =colunas2.childNodes[0];// checkbox
+    //check avisos
+    var input2Text = document.createElement('input'); // checkbox
+    colunas2.appendChild(input2Text); // checkbox
+    input2Text = colunas2.childNodes[0]; // checkbox
     input2Text.type = "checkbox";
-
     var ok2 = meuStorage.getItem('ok2');
-    if(ok2 === null || ok2 === "" || ok2 === "false"){
+    if (ok2 === null || ok2 === "" || ok2 === "false") {
         ok2 = "false";
         input2Text.checked = false;
-    }else{
+    } else {
         ok2 = "true";
         input2Text.checked = true;
     }
 
-    input2Text.onclick = function () {
+    input2Text.onclick = function() {
         var okBo2 = "";
-        if(ok2 === "false"){
+        if (ok2 === "false") {
 
             okBo2 = "true";
-        }else{
+        } else {
             ok2 = "true";
 
             okBo2 = "false";
@@ -200,34 +188,30 @@ function menuExtra(){
         meuStorage.setItem('ok2', okBo2);
         window.location.reload(1);
     };
-    if (ok2==="true" ){
+    if (ok2 === "true") {
         avisoOpcional = "yes"; //Yes para os avisos na área de trabalho
     }
 
-
-    //___________check meus avisos
-
-    var input3Text = document.createElement('input');// checkbox
-    colunas3.appendChild(input3Text);// checkbox
-
-    input3Text =colunas3.childNodes[0];// checkbox
+    //check meus avisos
+    var input3Text = document.createElement('input'); // checkbox
+    colunas3.appendChild(input3Text); // checkbox
+    input3Text = colunas3.childNodes[0]; // checkbox
     input3Text.type = "checkbox";
 
     var ok3 = meuStorage.getItem('ok3');
-    if(ok3 === null || ok3 === "" || ok3 === "false"){
+    if (ok3 === null || ok3 === "" || ok3 === "false") {
         ok3 = "false";
         input3Text.checked = false;
-    }else{
+    } else {
         ok3 = "true";
         input3Text.checked = true;
     }
-
-    input3Text.onclick = function () {
+    input3Text.onclick = function() {
         var okBo3 = "";
-        if(ok3 === "false"){
+        if (ok3 === "false") {
 
             okBo3 = "true";
-        }else{
+        } else {
             ok3 = "true";
 
             okBo3 = "false";
@@ -235,19 +219,18 @@ function menuExtra(){
         meuStorage.setItem('ok3', okBo3);
         window.location.reload(1);
     };
-    if (ok3==="true" ){
+    if (ok3 === "true") {
         avisoOpcionalMeusDefeitos = "yes";
     }
 
-    //_____________text nome
-
+    //text nome
     inputText = colunas.childNodes[0];
     var placeHolder = meuStorage.getItem('nome');
-    if(placeHolder === null || placeHolder === ""){
+    if (placeHolder === null || placeHolder === "") {
         placeHolder = "Digite seu nome & enter";
     }
     inputText.placeholder = placeHolder;
-    inputText.onkeypress = function (event) {
+    inputText.onkeypress = function(event) {
         if (event.which == 13 || event.keyCode == 13) {
             meuStorage.setItem('nome', inputText.value);
             window.location.reload(1);
@@ -258,18 +241,16 @@ function menuExtra(){
     /*console.log(botoes);
     console.log(inputText);*/
 
-
-    //_____________text tempo
-
+    //text tempo
     input0Text = colunas0.childNodes[0];
     placeHolder = meuStorage.getItem('tempo0');
-    if(placeHolder === null || placeHolder === ""){
+    if (placeHolder === null || placeHolder === "") {
 
         placeHolder = "Digite segundos refresh & enter";
     }
 
-    input0Text.placeholder = placeHolder+" segundos refresh";
-    input0Text.onkeypress = function (event) {
+    input0Text.placeholder = placeHolder + " segundos refresh";
+    input0Text.onkeypress = function(event) {
         if (event.which == 13 || event.keyCode == 13) {
 
             meuStorage.setItem('tempo0', input0Text.value);
@@ -278,87 +259,71 @@ function menuExtra(){
         }
         return true;
     };
-
-
     var tempo = meuStorage.getItem('tempo0');
-    if(tempo === null || tempo === "" || isNaN(tempo) === true){
+    if (tempo === null || tempo === "" || isNaN(tempo) === true) {
         tempo = "30";
         input0Text.placeholder = "30 segundos refresh";
     }
     var temporefresh1 = parseInt(tempo);
     var conver = 0;
     conver = temporefresh1 * 1000;
-    if(conver < 30000){
-        conver=30000;
+    if (conver < 30000) {
+        conver = 30000;
         input0Text.placeholder = "30 segundos refresh";
     }
-
     /*console.log(tempo+" valor");
     console.log(botoes);
     console.log(temporefresh1+" segundos");
     console.log(conver+" milissegundos");*/ //validações
-
-
     var temporefresh = conver;
     // Tempo para atualização da página
-    setTimeout(function(){
+    setTimeout(function() {
         window.location.reload(1);
     }, temporefresh);
 
-
-    //_____________text sistemas
-
+    //text sistemas
     input7Text = colunas7.childNodes[0];
     placeHolder = meuStorage.getItem('seussis');
-    if(placeHolder === null || placeHolder === ""){
+    if (placeHolder === null || placeHolder === "") {
         placeHolder = "Digite sistemas & enter Ex: NGIN, PORTAL FEDERADO, SIGAN, ...";
         meuStorage.setItem('seussis', "");
         input7Text.placeholder = placeHolder;
     }
-    if(placeHolder !== "Digite sistemas & enter Ex: NGIN, PORTAL FEDERADO, SIGAN, ..."){
+    if (placeHolder !== "Digite sistemas & enter Ex: NGIN, PORTAL FEDERADO, SIGAN, ...") {
         input7Text.value = placeHolder;
     }
     input7Text.style = "width:400px";
-    input7Text.onkeypress = function (event) {
+    input7Text.onkeypress = function(event) {
         if (event.which == 13 || event.keyCode == 13) {
             meuStorage.setItem('seussis', input7Text.value);
             window.location.reload(1);
             return false;
-
         }
-
         return true;
-
     };
-
     var sistemas3 = meuStorage.getItem('seussis');
-
     var sistemasarray = sistemas3.split(", ");
     //console.log(sistemasarray);
     return sistemasarray;
-
 }
 
-
-
-function link(projectRef, project, domain, id){
+function link(projectRef, project, domain, id) {
     //Montagem do elemento link, do ALM, dentro do elemento project em cada linha
     var link = document.createElement('a');
     projectRef.removeChild(project);
     projectRef.appendChild(link);
     link = projectRef.childNodes[0];
     link.text = project.data;
-    link.href = "td://"+project.data+"."+domain.data+".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID="+id.data;
+    link.href = "td://" + project.data + "." + domain.data + ".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID=" + id.data;
 }
 
-function main(){
-    try{
-
+function main() {
+    try {
         var sistemasx = menuExtra();
         var meuStorage = localStorage;
         var ok109 = meuStorage.getItem('ok109');
         var optionAmbientes = "nao";
-        if (ok109==="true" ){
+        if (ok109 === "true") {
             optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
         }
         var ambientes = optionAmbientes;
@@ -372,12 +337,13 @@ function main(){
             var idRef = id.childNodes[0];
             id = idRef.childNodes[0];
             var sistemaRef = linha.childNodes[5];
-            if (ambientes == "sim"){
-            var slaRef = linha.childNodes[8];
-            var sla = slaRef.childNodes[0];}
-            else{
-            slaRef = linha.childNodes[9];
-            sla = slaRef.childNodes[0];}
+            if (ambientes == "sim") {
+                var slaRef = linha.childNodes[8];
+                var sla = slaRef.childNodes[0];
+            } else {
+                slaRef = linha.childNodes[9];
+                sla = slaRef.childNodes[0];
+            }
             var status = linha.childNodes[10];
             status = status.childNodes[0];
             var slaArray = sla.data.split(" ");
@@ -387,27 +353,27 @@ function main(){
             var domainRef = linha.childNodes[2];
 
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
-            if (sistemaRef.childNodes.length !== 0){
+            if (sistemaRef.childNodes.length !== 0) {
                 var sistema = sistemaRef.childNodes[0];
-            }else{
+            } else {
                 sistema = sistemaRef;
                 sistema.data = "Sem sistema";
             }
-            if (domainRef.childNodes.length !== 0){
+            if (domainRef.childNodes.length !== 0) {
                 var domain = domainRef.childNodes[0];
-            }else{
+            } else {
                 domain = domainRef;
                 domain.data = "Sem dominio";
             }
-            if (projectRef.childNodes.length !== 0){
+            if (projectRef.childNodes.length !== 0) {
                 var project = projectRef.childNodes[0];
-            }else{
+            } else {
                 project = projectRef;
                 project.data = "Sem projeto";
             }
-            if (severityRef.childNodes.length !== 0){
+            if (severityRef.childNodes.length !== 0) {
                 var severity = severityRef.childNodes[0];
-            }else{
+            } else {
                 severity = severityRef;
                 severity.data = "Sem prioridade";
             }
@@ -419,116 +385,148 @@ function main(){
             var placeHolder = meuStorage.getItem('nome');
 
             // Pinta os elementos importantes para ficar fácil a localização na tabela
-            if(nome.data === meuStorage.getItem('nome')) //Seu nome
+            if (nome.data === meuStorage.getItem('nome')) //Seu nome
             {
                 contMe++;
-                defeitos.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data);
-                console.log(id.data+" está comigo");
-                if (opcionalCores === "yes"){
-                    linha.style = "background-color:#F0E68C";}
+                defeitos.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
+                console.log(id.data + " está comigo");
+                if (opcionalCores === "yes") {
+                    linha.style = "background-color:#F0E68C";
+                }
             }
-            if(nome.data === "QA N1" ||nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 "){
+            if (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 ") {
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
-                if (opcionalCores === "yes"){
-                    linha.style = backgroundDefAberto+";"+fonteDefAberto;
+                if (opcionalCores === "yes") {
+                    linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                     idRef.style = fonteDefAberto;
-                    link.style = backgroundDefAberto+";"+fonteDefAberto;
+                    link.style = backgroundDefAberto + ";" + fonteDefAberto;
                     //slaRef.style = "color:black";
                 }
             }
-            if(nome.data === "Compasso N1 "){
+            if (nome.data === "Compasso N1 ") {
                 contOpenComp++;
             }
-            if(nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes" ){
-                linha.style = backgroundDefAberto+";"+fonteDefAberto;
+            if (nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes") {
+                linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                 idRef.style = fonteDefAberto;
-                link.style = backgroundDefAberto+";"+fonteDefAberto;
+                link.style = backgroundDefAberto + ";" + fonteDefAberto;
             }
-            for (var cont = 0; cont < sistemasx.length; cont++){
-                if(nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data=== "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data=== "Compasso N1 " && sistema.data === sistemasx[cont]){
+            for (var cont = 0; cont < sistemasx.length; cont++) {
+                if (nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1 " && sistema.data === sistemasx[cont]) {
                     console.log("Encontrado");
-                    sistemas.push(" "+sistema.data);
+                    sistemas.push(" " + sistema.data);
                     contSistema++;
                 }
             }
-            if(slaData >= 20 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes"){
+            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:goldenrod; color: black";
 
             }
-            if(slaData >= 30 && (nome.data=== "QA N1" ||nome.data=== "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes"){
+            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:tomato; color: black";
 
             }
-            for (cont = 0; cont < sistemasx.length; cont++){
-                if(opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" ||nome.data=== "QA Gestão Ambientes" || nome.data === "Compasso N1 ") ){
+            for (cont = 0; cont < sistemasx.length; cont++) {
+                if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 ")) {
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                 }
             }
-             for (cont = 0; cont < monitorarQc.length; cont++){
-                if(opcionalCores === "yes" && id.data === monitorarQc[cont]){
+            for (cont = 0; cont < monitorarQc.length; cont++) {
+                if (opcionalCores === "yes" && id.data === monitorarQc[cont]) {
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
-                    qcs.push(" \n"+id.data+" - "+sistema.data+" - "+sla.data);
+                    qcs.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
                     contQcs++;
                 }
             }
-            if(slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes"){
+            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:tomato; color: black";
             }
-            if(severity.data === "4-Show Stopper" && opcionalCores === "yes"){
+            if (severity.data === "4-Show Stopper" && opcionalCores === "yes") {
                 severityRef.style = "font-weight: bold; color:red";
             }
-            if(nome.data === "Compasso N1 "){
-                linha.style = backgroundDefAberto+";"+fonteDefAberto;
+            if (nome.data === "Compasso N1 ") {
+                linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                 idRef.style = fonteDefAberto;
-                link.style = backgroundDefAberto+";"+fonteDefAberto;
+                link.style = backgroundDefAberto + ";" + fonteDefAberto;
                 linha.childNodes[0].style = "background-color:#8defd1; color: black";
             }
-            if(nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject"){
-                 linha.childNodes[0].style = "background-color:#8defd1; color: black";
+            if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
+                linha.childNodes[0].style = "background-color:#8defd1; color: black";
             }
-            
+
         }
 
 
         // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
         var tit = 'limpo';
-        if(ambientes === 'sim'){
-         tit = 'VIVO AMBIENTES' ;
+        if (ambientes === 'sim') {
+            tit = 'VIVO AMBIENTES';
 
-        }else{
-            tit = 'VIVO N1' ;}
-
-        if(contMe !== 0 && contSistema !==0 && avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+" "+contOpenComp+" Compasso N1"+
-                             "\nVocê está com "+contMe+" defeito(s)!"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
-        }else if(contMe !== 0 && avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê está com "+contMe+" defeito(s)!", timeout: tempoVidaNotif, title: tit});
-        } else if(contSistema !==0 && avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê não possui defeitos"+"\n"+contSistema+" sistema(s) escolhido(s) em aberto: "+sistemas, timeout: tempoVidaNotif, title: tit});
-        }
-        else if(avisoOpcional === "yes"){
-            GM_notification({text: "Atualmente "+contOpen+" defeito(s) aberto(s)!"+
-                             "\nVocê não possui defeitos", timeout: tempoVidaNotif, title: tit});
-        } if(contMe !== 0 && avisoOpcionalMeusDefeitos === "yes"){
-            GM_notification({text: "Detalhado(s): "+defeitos, timeout: tempoVidaNotif, title: "MEUS QC'S" });
-        }
-        if(contQcs !== 0){
-            GM_notification({text: "VOLTOOOU "+qcs, timeout: tempoVidaNotif, title: "VOLTOOOOOU" });
+        } else {
+            tit = 'VIVO N1';
         }
 
-        console.log("Total: "+tabela.childNodes.length+" defeitos");
-    }
-    catch(err) {
+        if (contMe !== 0 && contSistema !== 0 && avisoOpcional === "yes") {
+            GM_notification({
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" + " " + contOpenComp + " Compasso N1" +
+                    "\nVocê está com " + contMe + " defeito(s)!" + "\n" + contSistema + " sistema(s) escolhido(s) em aberto: " + sistemas,
+                timeout: tempoVidaNotif,
+                title: tit
+            });
+        } else if (contMe !== 0 && avisoOpcional === "yes") {
+            GM_notification({
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                    "\nVocê está com " + contMe + " defeito(s)!",
+                timeout: tempoVidaNotif,
+                title: tit
+            });
+        } else if (contSistema !== 0 && avisoOpcional === "yes") {
+            GM_notification({
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                    "\nVocê não possui defeitos" + "\n" + contSistema + " sistema(s) escolhido(s) em aberto: " + sistemas,
+                timeout: tempoVidaNotif,
+                title: tit
+            });
+        } else if (avisoOpcional === "yes") {
+            GM_notification({
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                    "\nVocê não possui defeitos",
+                timeout: tempoVidaNotif,
+                title: tit
+            });
+        }
+        if (contMe !== 0 && avisoOpcionalMeusDefeitos === "yes") {
+            GM_notification({
+                text: "Detalhado(s): " + defeitos,
+                timeout: tempoVidaNotif,
+                title: "MEUS QC'S"
+            });
+        }
+        if (contQcs !== 0) {
+            GM_notification({
+                text: "VOLTOOOU " + qcs,
+                timeout: tempoVidaNotif,
+                title: "VOLTOOOOOU"
+            });
+        }
+        console.log("Total: " + tabela.childNodes.length + " defeitos");
+    } catch (err) {
         var page_title = document.getElementsByClassName("page_title");
-        if(avisoOpcional === "yes" && page_title !== null){
-            GM_notification({text: "Atualmente não existe defeito(s) aberto(s)!", timeout: tempoVidaNotif, title: tit});
-        }else{
-            GM_notification({text: "Página não foi carregada!", timeout: tempoVidaNotif, title: tit});
+        if (avisoOpcional === "yes" && page_title !== null) {
+            GM_notification({
+                text: "Atualmente não existe defeito(s) aberto(s)!",
+                timeout: tempoVidaNotif,
+                title: tit
+            });
+        } else {
+            GM_notification({
+                text: "Página não foi carregada!",
+                timeout: tempoVidaNotif,
+                title: tit
+            });
         }
         console.log(err);
     }
