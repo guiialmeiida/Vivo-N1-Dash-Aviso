@@ -344,7 +344,7 @@ function main() {
                 slaRef = linha.childNodes[9];
                 sla = slaRef.childNodes[0];
             }
-            var status = linha.childNodes[10];
+            var status = linha.childNodes[11];
             status = status.childNodes[0];
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
