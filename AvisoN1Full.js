@@ -50,6 +50,10 @@ function menuExtra() {
     botoes.appendChild(botoesRef);
     botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
+    botoesRef = document.createElement('td');
+    botoes.appendChild(botoesRef);
+    botoesRef = document.createElement('td');
+    botoes.appendChild(botoesRef);
 
     //Seleciona o novo td
     var colunas = botoes.childNodes[5],
@@ -61,14 +65,18 @@ function menuExtra() {
         colunas2 = botoes.childNodes[11],
         colunas6 = botoes.childNodes[12],
         colunas3 = botoes.childNodes[13],
-        colunas9 = botoes.childNodes[14],
-        colunas10 = botoes.childNodes[15];
-
+        colunas9 = botoes.childNodes[16],
+        colunas10 = botoes.childNodes[17],
+        colunas11 = botoes.childNodes[14],
+        colunas12 = botoes.childNodes[15];
     //Cria um campo input
     var inputText = document.createElement('input');
     colunas.appendChild(inputText);
+    inputText.setAttribute('style', "border: 1px solid grey;   border-radius: 4px;");
+
     var input0Text = document.createElement('input');
     colunas0.appendChild(input0Text);
+    input0Text.setAttribute('style', "border: 1px solid grey;   border-radius: 4px;");
 
     var input4Text = document.createElement('LABEL');
     colunas4.appendChild(input4Text);
@@ -90,17 +98,25 @@ function menuExtra() {
     input9Text.innerHTML = "Ambientes:";
     input9Text.style = "Color: #FFFAFA ";
 
+
     var input7Text = document.createElement('input');
     colunas7.appendChild(input7Text);
+
+
+    var input11Text = document.createElement('LABEL');
+    colunas11.appendChild(input11Text);
+    input11Text.innerHTML = "Triagem:";
+    input11Text.style = "Color: #FFFAFA ";
 
     //===========================================================================================================
 
     //check ambientes
     var input109Text = document.createElement('input'); // checkbox
     colunas10.appendChild(input109Text); // checkbox
-	//Seleciona o campo criado
+    //Seleciona o campo criado
     input109Text = colunas10.childNodes[0]; // checkbox
     input109Text.type = "checkbox";
+    input109Text.setAttribute('style', "cursor: pointer;");
     var meuStorage = localStorage;
     var ok109 = meuStorage.getItem('ok109');
     if (ok109 === null || ok109 === "" || ok109 === "false") {
@@ -129,6 +145,44 @@ function menuExtra() {
         optionAmbientes = "nao";
     }
 
+
+    //===========================================================================================================
+
+    //check triagem
+    var input12Text = document.createElement('input'); // checkbox
+    colunas12.appendChild(input12Text); // checkbox
+    //Seleciona o campo criado
+    input12Text = colunas12.childNodes[0]; // checkbox
+    input12Text.type = "checkbox";
+    input12Text.setAttribute('style', "cursor: pointer;");
+    meuStorage = localStorage;
+    var ok12 = meuStorage.getItem('ok12');
+    if (ok12 === null || ok12 === "" || ok12 === "false") {
+        ok12 = "false";
+        input12Text.checked = false;
+    } else {
+        ok12 = "true";
+        input12Text.checked = true;
+    }
+    input12Text.onclick = function() {
+        var okBo12 = "";
+        if (ok12 === "false") {
+
+            okBo12 = "true";
+        } else {
+            ok12 = "true";
+
+            okBo12 = "false";
+        }
+        meuStorage.setItem('ok12', okBo12);
+        window.location.reload(1);
+    };
+    if (ok109 === "true") {
+        var optionTriagem = "sim"; //Yes para os avisos na área de trabalho
+    } else {
+        optionTriagem = "nao";
+    }
+
     //console.log(optionAmbientes);
     //===========================================================================================================
     //check cores
@@ -136,6 +190,7 @@ function menuExtra() {
     colunas1.appendChild(input1Text);
     input1Text = colunas1.childNodes[0];
     input1Text.type = "checkbox";
+    input1Text.setAttribute('style', "cursor: pointer;");
     var ok = meuStorage.getItem('ok');
     if (ok === null || ok === "" || ok === "false") {
         ok = "false";
@@ -166,6 +221,7 @@ function menuExtra() {
     colunas2.appendChild(input2Text); // checkbox
     input2Text = colunas2.childNodes[0]; // checkbox
     input2Text.type = "checkbox";
+    input2Text.setAttribute('style', "cursor: pointer;");
     var ok2 = meuStorage.getItem('ok2');
     if (ok2 === null || ok2 === "" || ok2 === "false") {
         ok2 = "false";
@@ -197,7 +253,7 @@ function menuExtra() {
     colunas3.appendChild(input3Text); // checkbox
     input3Text = colunas3.childNodes[0]; // checkbox
     input3Text.type = "checkbox";
-
+    input3Text.setAttribute('style', "cursor: pointer;");
     var ok3 = meuStorage.getItem('ok3');
     if (ok3 === null || ok3 === "" || ok3 === "false") {
         ok3 = "false";
@@ -292,7 +348,7 @@ function menuExtra() {
     if (placeHolder !== "Digite sistemas & enter Ex: NGIN, PORTAL FEDERADO, SIGAN, ...") {
         input7Text.value = placeHolder;
     }
-    input7Text.style = "width:400px";
+    //input7Text.style = "";
     input7Text.onkeypress = function(event) {
         if (event.which == 13 || event.keyCode == 13) {
             meuStorage.setItem('seussis', input7Text.value);
@@ -303,6 +359,7 @@ function menuExtra() {
     };
     var sistemas3 = meuStorage.getItem('seussis');
     var sistemasarray = sistemas3.split(", ");
+    input7Text.setAttribute('style', "border: 1px solid grey; border-radius: 4px; width:400px");
     //console.log(sistemasarray);
     return sistemasarray;
 }
@@ -322,11 +379,17 @@ function main() {
         var sistemasx = menuExtra();
         var meuStorage = localStorage;
         var ok109 = meuStorage.getItem('ok109');
+        var ok12 = meuStorage.getItem('ok12');
+        var optionTriagem = "nao";
         var optionAmbientes = "nao";
         if (ok109 === "true") {
-            optionAmbientes = "sim"; //Yes para os avisos na área de trabalho
+            optionAmbientes = "sim";
         }
         var ambientes = optionAmbientes;
+        if (ok12 === "true") {
+            optionTriagem = "sim";
+        }
+        var triagem = optionTriagem;
         //For principal, onde vai percorer cada linha por vez
         for (var i = 0; i < tabela.childNodes.length; i++) {
             //Seleciona os elementos em questão dentro da linha
@@ -407,16 +470,22 @@ function main() {
             if (nome.data === "Compasso N1 ") {
                 contOpenComp++;
             }
-            if (nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes") {
+            /*if (nome.data === "Matheus Canali Fossatti" && opcionalCores === "yes" || nome.data === "Laerte Loser" && opcionalCores === "yes") {
                 linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                 idRef.style = fonteDefAberto;
                 link.style = backgroundDefAberto + ";" + fonteDefAberto;
-            }
+            }*/
             for (var cont = 0; cont < sistemasx.length; cont++) {
-                if (nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1 " && sistema.data === sistemasx[cont]) {
-                    console.log("Encontrado");
-                    sistemas.push(" " + sistema.data);
-                    contSistema++;
+                if (triagem === 'sim') {
+                    if (nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1 " && sistema.data === sistemasx[cont]) {
+                        sistemas.push(" " + sistema.data);
+                        contSistema++;
+                    }
+                } else {
+                    if (nome.data === "QA N1" && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1 " && sistema.data === sistemasx[cont]) {
+                        sistemas.push(" " + sistema.data);
+                        contSistema++;
+                    }
                 }
             }
             if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
@@ -427,20 +496,28 @@ function main() {
                 slaRef.style = "background-color:tomato; color: black";
 
             }
+
             for (cont = 0; cont < sistemasx.length; cont++) {
-                if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 ")) {
-                    sistemaRef.style = "color:green;font-weight: bold";
-                    idRef.style = "color:green;font-weight: bold";
+                if (triagem === 'sim') {
+                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 ")) {
+                        sistemaRef.style = "color:green;font-weight: bold";
+                        idRef.style = "color:green;font-weight: bold";
+                    }
+                } else {
+                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1 " || nome.data === "QA N1")) {
+                        sistemaRef.style = "color:green;font-weight: bold";
+                        idRef.style = "color:green;font-weight: bold";
+                    }
                 }
             }
-            for (cont = 0; cont < monitorarQc.length; cont++) {
+            /*for (cont = 0; cont < monitorarQc.length; cont++) {
                 if (opcionalCores === "yes" && id.data === monitorarQc[cont]) {
                     sistemaRef.style = "color:green;font-weight: bold";
                     idRef.style = "color:green;font-weight: bold";
                     qcs.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
                     contQcs++;
                 }
-            }
+            }*/
             if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:tomato; color: black";
             }
@@ -453,8 +530,14 @@ function main() {
                 link.style = backgroundDefAberto + ";" + fonteDefAberto;
                 linha.childNodes[0].style = "background-color:#8defd1; color: black";
             }
-            if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
-                linha.childNodes[0].style = "background-color:#8defd1; color: black";
+            if (triagem === 'sim') {
+                if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
+                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                }
+            } else {
+                if (nome.data === "QA N1") {
+                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                }
             }
 
         }
@@ -478,21 +561,21 @@ function main() {
             });
         } else if (contMe !== 0 && avisoOpcional === "yes") {
             GM_notification({
-                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" + " " + contOpenComp + " Compasso N1" +
                     "\nVocê está com " + contMe + " defeito(s)!",
                 timeout: tempoVidaNotif,
                 title: tit
             });
         } else if (contSistema !== 0 && avisoOpcional === "yes") {
             GM_notification({
-                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" + " " + contOpenComp + " Compasso N1" +
                     "\nVocê não possui defeitos" + "\n" + contSistema + " sistema(s) escolhido(s) em aberto: " + sistemas,
                 timeout: tempoVidaNotif,
                 title: tit
             });
         } else if (avisoOpcional === "yes") {
             GM_notification({
-                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" +
+                text: "Atualmente " + contOpen + " defeito(s) aberto(s)!" + " " + contOpenComp + " Compasso N1" +
                     "\nVocê não possui defeitos",
                 timeout: tempoVidaNotif,
                 title: tit
@@ -505,13 +588,13 @@ function main() {
                 title: "MEUS QC'S"
             });
         }
-        if (contQcs !== 0) {
+        /*if (contQcs !== 0) {
             GM_notification({
                 text: "VOLTOOOU " + qcs,
                 timeout: tempoVidaNotif,
                 title: "VOLTOOOOOU"
             });
-        }
+        }*/
         console.log("Total: " + tabela.childNodes.length + " defeitos");
     } catch (err) {
         var page_title = document.getElementsByClassName("page_title");
