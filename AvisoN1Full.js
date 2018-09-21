@@ -72,11 +72,11 @@ function menuExtra() {
     //Cria um campo input
     var inputText = document.createElement('input');
     colunas.appendChild(inputText);
-    inputText.setAttribute('style', "border: 1px solid grey;   border-radius: 4px;");
+    inputText.setAttribute('style', "border: 1px solid grey;   border-radius: 4px; padding: 4px;");
 
     var input0Text = document.createElement('input');
     colunas0.appendChild(input0Text);
-    input0Text.setAttribute('style', "border: 1px solid grey;   border-radius: 4px;");
+    input0Text.setAttribute('style', "border: 1px solid grey;   border-radius: 4px; padding: 4px;");
 
     var input4Text = document.createElement('LABEL');
     colunas4.appendChild(input4Text);
@@ -116,7 +116,7 @@ function menuExtra() {
     //Seleciona o campo criado
     input109Text = colunas10.childNodes[0]; // checkbox
     input109Text.type = "checkbox";
-    input109Text.setAttribute('style', "cursor: pointer;");
+    input109Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
     var meuStorage = localStorage;
     var ok109 = meuStorage.getItem('ok109');
     if (ok109 === null || ok109 === "" || ok109 === "false") {
@@ -154,7 +154,7 @@ function menuExtra() {
     //Seleciona o campo criado
     input12Text = colunas12.childNodes[0]; // checkbox
     input12Text.type = "checkbox";
-    input12Text.setAttribute('style', "cursor: pointer;");
+    input12Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
     meuStorage = localStorage;
     var ok12 = meuStorage.getItem('ok12');
     if (ok12 === null || ok12 === "" || ok12 === "false") {
@@ -190,7 +190,7 @@ function menuExtra() {
     colunas1.appendChild(input1Text);
     input1Text = colunas1.childNodes[0];
     input1Text.type = "checkbox";
-    input1Text.setAttribute('style', "cursor: pointer;");
+    input1Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
     var ok = meuStorage.getItem('ok');
     if (ok === null || ok === "" || ok === "false") {
         ok = "false";
@@ -221,7 +221,7 @@ function menuExtra() {
     colunas2.appendChild(input2Text); // checkbox
     input2Text = colunas2.childNodes[0]; // checkbox
     input2Text.type = "checkbox";
-    input2Text.setAttribute('style', "cursor: pointer;");
+    input2Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
     var ok2 = meuStorage.getItem('ok2');
     if (ok2 === null || ok2 === "" || ok2 === "false") {
         ok2 = "false";
@@ -253,7 +253,7 @@ function menuExtra() {
     colunas3.appendChild(input3Text); // checkbox
     input3Text = colunas3.childNodes[0]; // checkbox
     input3Text.type = "checkbox";
-    input3Text.setAttribute('style', "cursor: pointer;");
+    input3Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
     var ok3 = meuStorage.getItem('ok3');
     if (ok3 === null || ok3 === "" || ok3 === "false") {
         ok3 = "false";
@@ -359,7 +359,7 @@ function menuExtra() {
     };
     var sistemas3 = meuStorage.getItem('seussis');
     var sistemasarray = sistemas3.split(", ");
-    input7Text.setAttribute('style', "border: 1px solid grey; border-radius: 4px; width:400px");
+    input7Text.setAttribute('style', "border: 1px solid grey; border-radius: 4px; width:400px; padding: 4px;");
     //console.log(sistemasarray);
     return sistemasarray;
 }
