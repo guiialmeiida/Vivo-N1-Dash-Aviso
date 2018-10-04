@@ -526,10 +526,12 @@ function main() {
                 severityRef.style = "font-weight: bold; color:red";
             }
             if (nome.data === "Compasso N1 ") {
-                linha.style = backgroundDefAberto + ";" + fonteDefAberto;
-                idRef.style = fonteDefAberto;
-                //link.style = backgroundDefAberto + ";" + fonteDefAberto;
-                linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                if (opcionalCores === "yes") {
+                    linha.style = backgroundDefAberto + ";" + fonteDefAberto;
+                    idRef.style = fonteDefAberto;
+                    //link.style = backgroundDefAberto + ";" + fonteDefAberto;
+                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                }
             }
             if (triagem === 'sim') {
                 if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
