@@ -363,7 +363,7 @@ function menuExtra() {
     //console.log(sistemasarray);
     return sistemasarray;
 }
-/*
+
 function link(projectRef, project, domain, id) {
     //Montagem do elemento link, do ALM, dentro do elemento project em cada linha
     var link = document.createElement('a');
@@ -373,7 +373,7 @@ function link(projectRef, project, domain, id) {
     link.text = project.data;
     link.href = "td://" + project.data + "." + domain.data + ".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID=" + id.data;
 }
-*/
+
 
 function main() {
     try {
@@ -443,7 +443,7 @@ function main() {
             }
 
 
-           // link(projectRef, project, domain, id);
+            link(projectRef, project, domain, id);
 
             meuStorage = localStorage;
             var placeHolder = meuStorage.getItem('nome');
@@ -464,7 +464,7 @@ function main() {
                 if (opcionalCores === "yes") {
                     linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                     idRef.style = fonteDefAberto;
-                    //link.style = backgroundDefAberto + ";" + fonteDefAberto;
+                    link.style = backgroundDefAberto + ";" + fonteDefAberto;
                     //slaRef.style = "color:black";
                 }
             }
@@ -529,7 +529,7 @@ function main() {
                 if (opcionalCores === "yes") {
                     linha.style = backgroundDefAberto + ";" + fonteDefAberto;
                     idRef.style = fonteDefAberto;
-                    //link.style = backgroundDefAberto + ";" + fonteDefAberto;
+                    link.style = backgroundDefAberto + ";" + fonteDefAberto;
                     linha.childNodes[0].style = "background-color:#8defd1; color: black";
                 }
             }
