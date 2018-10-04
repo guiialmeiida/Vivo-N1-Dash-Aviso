@@ -533,11 +533,15 @@ function main() {
             }
             if (triagem === 'sim') {
                 if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
-                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                    if (opcionalCores === "yes") {
+                        linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                    }
                 }
             } else {
                 if (nome.data === "QA N1") {
-                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                    if (opcionalCores === "yes") {
+                        linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                    }
                 }
             }
 
