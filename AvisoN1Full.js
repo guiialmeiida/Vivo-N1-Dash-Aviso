@@ -415,6 +415,15 @@ function main() {
             var severityRef = linha.childNodes[7];
             var projectRef = linha.childNodes[3];
             var domainRef = linha.childNodes[2];
+            var releaseRef = linha.childNodes[4];
+            var release = releaseRef.childNodes[0];
+            var releaseArray = release.data.split(" ");
+            var releaseData = parseInt(releaseArray[0]);
+
+            if(releaseArray[2] == "Regras"){
+                console.log("oi")
+            releaseRef.style = "color: red; font-weight: bold";
+            }
 
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
