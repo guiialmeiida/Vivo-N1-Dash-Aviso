@@ -404,24 +404,30 @@ function main() {
             if (ambientes == "sim") {
                 var slaRef = linha.childNodes[8];
                 var sla = slaRef.childNodes[0];
+                var status = linha.childNodes[9];
+                status = status.childNodes[0];
             } else {
                 slaRef = linha.childNodes[9];
                 sla = slaRef.childNodes[0];
+                status = linha.childNodes[10];
+                status = status.childNodes[0];
             }
-            var status = linha.childNodes[10];
-            status = status.childNodes[0];
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
             var severityRef = linha.childNodes[7];
             var projectRef = linha.childNodes[3];
             var domainRef = linha.childNodes[2];
             var releaseRef = linha.childNodes[4];
-            var release = releaseRef.childNodes[0];
-            var releaseArray = release.data.split(" ");
-            var releaseData = parseInt(releaseArray[0]);
-
+           
+            if (releaseRef.childNodes.length !== 0) {
+                var release = releaseRef.childNodes[0];
+                var releaseArray = release.data.split(" ");
+                var releaseData = parseInt(releaseArray[0]);
+            } else {
+                release = releaseRef;
+                release.data = "Sem sistema";
+            }
             if(releaseArray[2] == "Regras"){
-                console.log("oi")
             releaseRef.style = "color: red; font-weight: bold";
             }
 
