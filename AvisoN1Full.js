@@ -473,7 +473,7 @@ function main() {
                     linha.style = "background-color:#F0E68C";
                 }
             }
-            if (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1" || nome.data === "QA Gestao Ambientes") {
+            if (nome.data === "QA N1" || nome.data === "QA gestao Ambientes" || nome.data === "Compasso N1") {
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
                 if (opcionalCores === "yes") {
@@ -493,34 +493,34 @@ function main() {
             }*/
             for (var cont = 0; cont < sistemasx.length; cont++) {
                 if (triagem === 'sim') {
-                    if (nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1" && sistema.data === sistemasx[cont]) {
+                    if (nome.data === "QA N1" && (status.data === "Reopened" || status.data === "Pending Reject") && sistema.data === sistemasx[cont] || nome.data === "QA gestao Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1" && sistema.data === sistemasx[cont]) {
                         sistemas.push(" " + sistema.data);
                         contSistema++;
                     }
                 } else {
-                    if (nome.data === "QA N1" && sistema.data === sistemasx[cont] || nome.data === "QA Gestão Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1" && sistema.data === sistemasx[cont]) {
+                    if (nome.data === "QA N1" && sistema.data === sistemasx[cont] || nome.data === "QA gestao Ambientes" && sistema.data === sistemasx[cont] || nome.data === "Compasso N1" && sistema.data === sistemasx[cont]) {
                         sistemas.push(" " + sistema.data);
                         contSistema++;
                     }
                 }
             }
-            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA gestao Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:goldenrod; color: black";
 
             }
-            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA gestao Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:tomato; color: black";
 
             }
 
             for (cont = 0; cont < sistemasx.length; cont++) {
                 if (triagem === 'sim') {
-                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1")) {
+                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA gestao Ambientes" || nome.data === "Compasso N1")) {
                         sistemaRef.style = "color:green;font-weight: bold";
                         idRef.style = "color:green;font-weight: bold";
                     }
                 } else {
-                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1" || nome.data === "QA N1")) {
+                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA gestao Ambientes" || nome.data === "Compasso N1" || nome.data === "QA N1")) {
                         sistemaRef.style = "color:green;font-weight: bold";
                         idRef.style = "color:green;font-weight: bold";
                     }
