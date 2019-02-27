@@ -473,7 +473,7 @@ function main() {
                     linha.style = "background-color:#F0E68C";
                 }
             }
-            if (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1") {
+            if (nome.data === "QA N1" || nome.data === "QA Gestão Ambientes" || nome.data === "Compasso N1" || nome.data === "QA Gestao Ambientes") {
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
                 if (opcionalCores === "yes") {
