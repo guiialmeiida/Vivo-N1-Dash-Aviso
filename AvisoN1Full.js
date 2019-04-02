@@ -427,7 +427,7 @@ function main() {
                 release = releaseRef;
                 release.data = "Sem sistema";
             }
-            if(releaseArray[2] == "Regras"){
+            if(releaseArray[2] == "SVAs" || releaseArray[8] == "Chorinho" ){
             releaseRef.style = "color: red; font-weight: bold";
             }
 
