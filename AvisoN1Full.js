@@ -430,7 +430,9 @@ function main() {
             if(releaseArray[2] == "SVAs" || releaseArray[8] == "Chorinho" ){
             releaseRef.style = "color: red; font-weight: bold";
             }
-
+            if (releaseArray[1] == "[Luiza"){
+            releaseRef.style = "color: purple; font-weight: bold";
+            }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
                 var sistema = sistemaRef.childNodes[0];
