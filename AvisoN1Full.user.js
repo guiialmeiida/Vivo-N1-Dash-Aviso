@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Aviso Dashboard
-// @version      3.3
+// @version      4.0
 // @description  Notificação dos defeitos, opções layout
 // @author       Thauã Corrêa Martins, Eduardo Czamanski Rota
 // @source       https://github.com/correamth/dashaviso
