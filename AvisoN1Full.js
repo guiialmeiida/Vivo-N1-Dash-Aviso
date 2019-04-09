@@ -427,7 +427,7 @@ function main() {
                 release = releaseRef;
                 release.data = "Sem sistema";
             }
-            if(releaseArray[2] == "SVAs" || releaseArray[8] == "Chorinho" ){
+            if(releaseArray[2] == "SVAs" || releaseArray[8] == "Chorinho" || releaseArray[6] == "(Chorinho)"){
             releaseRef.style = "color: red; font-weight: bold";
             }
             if (releaseArray[1] == "[Luiza" || releaseArray[1] == "[LUIZA" || releaseArray[0] == "3011-[LUIZA" ){
