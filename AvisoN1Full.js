@@ -536,7 +536,7 @@ function main() {
                     contQcs++;
                 }
             }*/
-            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes") {
+            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 60 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
                 slaRef.style = "background-color:tomato; color: black";
             }
             if (severity.data === "4-Show Stopper" && opcionalCores === "yes") {
