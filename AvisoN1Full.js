@@ -427,11 +427,11 @@ function main() {
                 release = releaseRef;
                 release.data = "Sem sistema";
             }
-            if(releaseArray[2] == "SVAs" || releaseArray[8] == "Chorinho" || releaseArray[6] == "(Chorinho)"){
-            releaseRef.style = "color: red; font-weight: bold";
+            if( releaseArray.includes('[PANDORA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA')){
+                releaseRef.style = "color: purple; font-weight: bold";
             }
-            if (releaseArray[1] == "[Luiza" || releaseArray[1] == "[LUIZA" || releaseArray[0] == "3011-[LUIZA" || releaseArray[2] == "[PANDORA"){
-            releaseRef.style = "color: purple; font-weight: bold";
+            if(releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("(Chorinho)")){
+            releaseRef.style = "color: red; font-weight: bold";
             }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
