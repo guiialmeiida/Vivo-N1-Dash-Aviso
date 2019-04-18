@@ -427,7 +427,7 @@ function main() {
                 release = releaseRef;
                 release.data = "Sem sistema";
             }
-            if( releaseArray.includes('[PANDORA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')){
+            if( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')){
                 releaseRef.style = "color: purple; font-weight: bold";
             }
             if(releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("(Chorinho)")){
