@@ -23,6 +23,80 @@ var monitorarQc = [""]; //teste colocar o id do defeito que deseja monitorar
 main();
 
 function menuExtra() {
+    
+     //####################################################
+
+    var legenda = document.getElementById("container");
+
+    //-----------------------------------------
+
+    var legenda1Text = document.createElement('LABEL');
+    legenda.appendChild(legenda1Text);
+    legenda1Text.innerHTML = "PROJECT LEGENDA DAS CORES";
+    legenda1Text.style = "Color: #FFFAFA; margin-left: 30px;";
+
+
+    //-----------------------------------------
+
+    var quebraLinha = document.createElement('br');
+    legenda.appendChild(quebraLinha);
+       var quebraLinha1 = document.createElement('br');
+    legenda.appendChild(quebraLinha1);
+
+    //-----------------------------------------
+
+    var legendaText1 = document.createElement('input');
+    legenda.appendChild(legendaText1);
+    //legendaText.type = "checkbox";
+    legendaText1.setAttribute('style', "background-color: red; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
+    legendaText1.setAttribute('title', "Peço atenção a toda a equipe, temos que ter uma análise bem crítica para não levar nenhum reject nos QCs dos projetos citados a seguir, pois estamos no vermelho com esses projetos e já está escalado a criticidade.");
+    legendaText1.setAttribute('readonly', "true");
+    legendaText1.setAttribute('value', "PRIORIDADE ZERO");
+
+
+    //-----------------------------------------
+
+    var quebraLinha2 = document.createElement('br');
+    legenda.appendChild(quebraLinha2);
+    var quebraLinha3 = document.createElement('br');
+    legenda.appendChild(quebraLinha3);
+
+    //-----------------------------------------
+
+    var legendaText = document.createElement('input');
+    legenda.appendChild(legendaText);
+    //legendaText.type = "checkbox";
+    legendaText.setAttribute('style', "background-color: purple; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
+    legendaText.setAttribute('title', " O Robson terá um perfil de N1 no QC, ele irá analisar e tramitar os defeitos sempre que preciso exclusivamente para o Projeto Pandora. Peço para que sempre que ele não estiver e existir uma solicitação de direcionamento nos defeitos do Pandora podem direcionar conforme o solicitado do defeito.");
+    legendaText.setAttribute('readonly', "true");
+    legendaText.setAttribute('value', "PANDORA");
+
+    //-----------------------------------------
+
+    var quebraLinha4 = document.createElement('br');
+    legenda.appendChild(quebraLinha4);
+    var quebraLinha5 = document.createElement('br');
+    legenda.appendChild(quebraLinha5);
+
+    //-----------------------------------------
+
+    var legendaText2 = document.createElement('input');
+    legenda.appendChild(legendaText2);
+    legendaText2.setAttribute('style', "background-color: purple; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
+    legendaText2.setAttribute('title', "O Projeto Luiza será analisado por Rodrigo Lunardi.");
+    legendaText2.setAttribute('readonly', "true");
+    legendaText2.setAttribute('value', "LUIZA");
+
+    //-----------------------------------------
+
+
+    var legendaDiv = document.createElement('div');
+    legenda.appendChild(legendaDiv);
+    legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
+
+    //-----------------------------------------
+    //####################################################
+    
     //Seleciona a tabela onde o botão priorizar está
     var botoes = document.getElementById("fDefectsList:pgBtnPriorizar");
     botoes = botoes.childNodes[1];
