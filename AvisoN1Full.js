@@ -504,7 +504,7 @@ function main() {
             if( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')){
                 releaseRef.style = "color: purple; font-weight: bold";
             }
-            if(releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("(Chorinho)")){
+            if(releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("vitaminado") || releaseArray.includes("(Chorinho)")){
             releaseRef.style = "color: red; font-weight: bold";
             }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
