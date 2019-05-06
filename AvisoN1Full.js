@@ -493,19 +493,18 @@ function main() {
             var domainRef = linha.childNodes[2];
             var releaseRef = linha.childNodes[4];
            
+           
             if (releaseRef.childNodes.length !== 0) {
                 var release = releaseRef.childNodes[0];
                 var releaseArray = release.data.split(" ");
                 var releaseData = parseInt(releaseArray[0]);
-            } else {
-                release = releaseRef;
-                release.data = "Sem sistema";
-            }
-            if( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')){
-                releaseRef.style = "color: purple; font-weight: bold";
-            }
-            if(releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("vitaminado") || releaseArray.includes("(Chorinho)")){
-            releaseRef.style = "color: red; font-weight: bold";
+
+                if (releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
+                    releaseRef.style = "color: purple; font-weight: bold";
+                }
+                if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("vitaminado") || releaseArray.includes("(Chorinho)")) {
+                    releaseRef.style = "color: red; font-weight: bold";
+                }
             }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
