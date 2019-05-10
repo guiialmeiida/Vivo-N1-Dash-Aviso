@@ -609,6 +609,14 @@ function main() {
                     contQcs++;
                 }
             }*/
+           for (cont = 0; cont < sistemasx.length; cont++) {
+                if (opcionalCores === "yes" && id.data === sistemasx[cont]) {
+                    sistemaRef.style = "color:red;font-weight: bold";
+                    idRef.style = "color:red;font-weight: bold";
+                    qcs.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
+                    contQcs++;
+                }
+            }
             if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 60 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
                 slaRef.style = "background-color:tomato; color: black";
             }
