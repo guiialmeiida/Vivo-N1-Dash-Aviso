@@ -90,6 +90,24 @@ function menuExtra() {
     //-----------------------------------------
 
 
+
+
+    var quebraLinha6 = document.createElement('br');
+    legenda.appendChild(quebraLinha6);
+    var quebraLinha7 = document.createElement('br');
+    legenda.appendChild(quebraLinha7);
+
+    //-----------------------------------------
+
+    var legendaText3 = document.createElement('input');
+    legenda.appendChild(legendaText3);
+    legendaText3.setAttribute('style', "background-color: rgb(22, 96, 255); color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
+    legendaText3.setAttribute('title', "Por gentileza seguir com os encaminhamentos conforme e-mail, para os QCs do projeto FUSION com solicitação de encaminhamento.");
+    legendaText3.setAttribute('readonly', "true");
+    legendaText3.setAttribute('value', "FUSION");
+
+    //-----------------------------------------
+    
     var legendaDiv = document.createElement('div');
     legenda.appendChild(legendaDiv);
     legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
@@ -504,6 +522,9 @@ function main() {
                 }
                 if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("vitaminado") || releaseArray.includes("(Chorinho)")) {
                     releaseRef.style = "color: red; font-weight: bold";
+                }
+                if (releaseArray.includes("Fusion")) {
+                    releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
                 }
             }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
