@@ -105,6 +105,25 @@ function menuExtra() {
     legendaText3.setAttribute('title', "Por gentileza seguir com os encaminhamentos conforme e-mail, para os QCs do projeto FUSION com solicitação de encaminhamento.");
     legendaText3.setAttribute('readonly', "true");
     legendaText3.setAttribute('value', "FUSION");
+    
+    //-----------------------------------------
+
+
+
+
+    var quebraLinha8 = document.createElement('br');
+    legenda.appendChild(quebraLinha8);
+    var quebraLinha9 = document.createElement('br');
+    legenda.appendChild(quebraLinha9);
+
+    //-----------------------------------------
+
+    var legendaText4 = document.createElement('input');
+    legenda.appendChild(legendaText4);
+    legendaText4.setAttribute('style', "background-color: rgb(22, 96, 255); color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
+    legendaText4.setAttribute('title', "Atentar-se na descrição detalhada e comentários se existe pedido de encaminhamento ou verificação com arquiteta");
+    legendaText4.setAttribute('readonly', "true");
+    legendaText4.setAttribute('value', "(FTTH)");
 
     //-----------------------------------------
     
@@ -523,7 +542,7 @@ function main() {
                 if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("vitaminado") || releaseArray.includes("(Chorinho)")) {
                     releaseRef.style = "color: red; font-weight: bold";
                 }
-                if (releaseArray.includes("Fusion")) {
+                if (releaseArray.includes("Fusion") || releaseArray.includes("(FTTH)")) {
                     releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
                 }
             }
