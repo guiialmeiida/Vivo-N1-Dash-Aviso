@@ -18,7 +18,7 @@ var backgroundDefAberto = "background-color:#D3DDEB";
 var fonteDefAberto = "color:black";
 var tempoVidaNotif = 5000;
 var monitorarQc = [""]; //teste colocar o id do defeito que deseja monitorar
-
+var qcsComigo = [""];
 //Chamada function principal
 main();
 
@@ -579,6 +579,8 @@ function main() {
             var placeHolder = meuStorage.getItem('nome');
 
             // Pinta os elementos importantes para ficar fácil a localização na tabela
+           // Pinta os elementos importantes para ficar fácil a localização na tabela
+            //aaaaaaaaaaaaaaaaaaaaaa
             if (nome.data === meuStorage.getItem('nome')) //Seu nome
             {
                 contMe++;
@@ -587,6 +589,38 @@ function main() {
                 if (opcionalCores === "yes") {
                     linha.style = "background-color:#F0E68C";
                 }
+
+
+                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
+
+                if (localStorage.getItem('qcsComigo') == null){
+                    localStorage.setItem('qcsComigo', 'inicializando' );
+                }
+                qcsComigo.push(id.data + " - " + sistema.data + " - " + project.data);
+                var teste101 = meuStorage.getItem('qcsComigo');
+
+                for (var aa = 0; aa < qcsComigo.length; aa++){
+                  if (teste101.includes(qcsComigo[aa])){
+                      console.log('possui um igual ' + qcsComigo[aa])
+                  }else {
+                  console.log('NAOOOOOOOOOO possui um igual ' + qcsComigo[aa]);
+                      localStorage.setItem('qcsComigo', teste101 + " \n "+ qcsComigo[aa] );
+                  }
+                }
+
+                var d = new Date();
+                var str = 'oi '+ d
+                var arrayData = str.split(" ");
+                var recebeData =" ######### " + arrayData[2]+' '+arrayData[3]+' '+arrayData[4] + " ######### "
+
+
+                if (teste101.includes(recebeData)){
+                  console.log('ja tem a data de hoje')
+                }else {
+                 localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
+                }
+
+                // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
             if (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") {
                 //console.log("contOpen++");
