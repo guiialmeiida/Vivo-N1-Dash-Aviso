@@ -601,9 +601,8 @@ function main() {
 
                 for (var aa = 0; aa < qcsComigo.length; aa++){
                   if (teste101.includes(qcsComigo[aa])){
-                      console.log('possui um igual ' + qcsComigo[aa])
+                      console.log('.')
                   }else {
-                  console.log('NAOOOOOOOOOO possui um igual ' + qcsComigo[aa]);
                       localStorage.setItem('qcsComigo', teste101 + " \n "+ qcsComigo[aa] );
                   }
                 }
@@ -615,7 +614,7 @@ function main() {
 
 
                 if (teste101.includes(recebeData)){
-                  console.log('ja tem a data de hoje')
+                 console.log('.')
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
