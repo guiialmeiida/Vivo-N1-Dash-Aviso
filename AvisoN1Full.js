@@ -132,6 +132,18 @@ function menuExtra() {
     legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
 
     //-----------------------------------------
+    
+    
+
+    var legendaDiv1 = document.createElement('div');
+    legenda.appendChild(legendaDiv1);
+    legendaDiv1.setAttribute('style', "display:none;color:white;");
+    legendaDiv1.setAttribute('id', "divparateste");
+    
+        
+    //-----------------------------------------
+
+    
     //####################################################
     
     //Seleciona a tabela onde o botão priorizar está
@@ -618,6 +630,9 @@ function main() {
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
+                
+                    document.getElementById('divparateste').innerHTML = "";
+                 	document.getElementById('divparateste').innerHTML = teste101;
 
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
