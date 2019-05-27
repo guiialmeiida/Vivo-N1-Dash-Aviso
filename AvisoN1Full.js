@@ -32,7 +32,7 @@ function menuExtra() {
 
     var legenda1Text = document.createElement('LABEL');
     legenda.appendChild(legenda1Text);
-    legenda1Text.innerHTML = "PROJECT LEGENDA DAS CORES";
+    legenda1Text.innerHTML = "LEGENDA DAS CORES";
     legenda1Text.style = "Color: #FFFAFA; margin-left: 30px;";
 
 
@@ -107,10 +107,7 @@ function menuExtra() {
     legendaText3.setAttribute('value', "FUSION");
     
     //-----------------------------------------
-
-
-
-
+    
     var quebraLinha8 = document.createElement('br');
     legenda.appendChild(quebraLinha8);
     var quebraLinha9 = document.createElement('br');
@@ -131,19 +128,36 @@ function menuExtra() {
     legenda.appendChild(legendaDiv);
     legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
 
+    var botaoDiv = document.createElement('button');
+    legendaDiv.appendChild(botaoDiv);
+    botaoDiv.setAttribute('style', "cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px; margin-top:10px");
+    botaoDiv.setAttribute('id', "load");
+    var inputTexto5 = document.createElement('LABEL');
+    botaoDiv.appendChild(inputTexto5);
+    inputTexto5.setAttribute('style', "cursor:pointer;")
+    inputTexto5.innerHTML = "QCS analisados";
+
+    function danone(){
+    document.getElementById('legendaDiv1').style.display = 'flex';
+
+    }
+    document.getElementById("load").onclick = danone
+
     //-----------------------------------------
     
     
 
     var legendaDiv1 = document.createElement('div');
     legenda.appendChild(legendaDiv1);
-    legendaDiv1.setAttribute('style', "display:none;color:white;");
-    legendaDiv1.setAttribute('id', "divparateste");
-    
-        
-    //-----------------------------------------
+    legendaDiv1.setAttribute('id', "legendaDiv1");
+    legendaDiv1.setAttribute('style', 'display:none;')
 
-    
+
+    var caixaTexto = document.createElement('textarea');
+    legendaDiv1.appendChild(caixaTexto);
+
+    caixaTexto.setAttribute('id', "divparateste");
+    caixaTexto.setAttribute('style', "width: 400px;height:100px;");
     //####################################################
     
     //Seleciona a tabela onde o botão priorizar está
