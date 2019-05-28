@@ -24,47 +24,45 @@ main();
 
 function menuExtra() {
     
-     //####################################################
+         //####################################################
 
     var legenda = document.getElementById("container");
-
+      //-----------------------------------------
+    var legendaDiv2 = document.createElement('div');
+    legenda.appendChild(legendaDiv2);
+    legendaDiv2.setAttribute('id', "legendaDiv2");
+    legendaDiv2.setAttribute('style', 'display:inline-block;position:absolute;')
     //-----------------------------------------
-
     var legenda1Text = document.createElement('LABEL');
-    legenda.appendChild(legenda1Text);
+    legendaDiv2.appendChild(legenda1Text);
     legenda1Text.innerHTML = "LEGENDA DAS CORES";
     legenda1Text.style = "Color: #FFFAFA; margin-left: 30px;";
-
-
     //-----------------------------------------
-
     var quebraLinha = document.createElement('br');
-    legenda.appendChild(quebraLinha);
-       var quebraLinha1 = document.createElement('br');
-    legenda.appendChild(quebraLinha1);
-
+    legendaDiv2.appendChild(quebraLinha);
+    var quebraLinha1 = document.createElement('br');
+    legendaDiv2.appendChild(quebraLinha1);
     //-----------------------------------------
 
     var legendaText1 = document.createElement('input');
-    legenda.appendChild(legendaText1);
+    legendaDiv2.appendChild(legendaText1);
     //legendaText.type = "checkbox";
     legendaText1.setAttribute('style', "background-color: red; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
     legendaText1.setAttribute('title', "Peço atenção a toda a equipe, temos que ter uma análise bem crítica para não levar nenhum reject nos QCs dos projetos citados a seguir, pois estamos no vermelho com esses projetos e já está escalado a criticidade.");
     legendaText1.setAttribute('readonly', "true");
     legendaText1.setAttribute('value', "PRIORIDADE ZERO");
 
-
     //-----------------------------------------
 
     var quebraLinha2 = document.createElement('br');
-    legenda.appendChild(quebraLinha2);
+    legendaDiv2.appendChild(quebraLinha2);
     var quebraLinha3 = document.createElement('br');
-    legenda.appendChild(quebraLinha3);
+    legendaDiv2.appendChild(quebraLinha3);
 
     //-----------------------------------------
 
     var legendaText = document.createElement('input');
-    legenda.appendChild(legendaText);
+    legendaDiv2.appendChild(legendaText);
     //legendaText.type = "checkbox";
     legendaText.setAttribute('style', "background-color: purple; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
     legendaText.setAttribute('title', " O Robson terá um perfil de N1 no QC, ele irá analisar e tramitar os defeitos sempre que preciso exclusivamente para o Projeto Pandora. Peço para que sempre que ele não estiver e existir uma solicitação de direcionamento nos defeitos do Pandora podem direcionar conforme o solicitado do defeito.");
@@ -74,14 +72,14 @@ function menuExtra() {
     //-----------------------------------------
 
     var quebraLinha4 = document.createElement('br');
-    legenda.appendChild(quebraLinha4);
+    legendaDiv2.appendChild(quebraLinha4);
     var quebraLinha5 = document.createElement('br');
-    legenda.appendChild(quebraLinha5);
+    legendaDiv2.appendChild(quebraLinha5);
 
     //-----------------------------------------
 
     var legendaText2 = document.createElement('input');
-    legenda.appendChild(legendaText2);
+    legendaDiv2.appendChild(legendaText2);
     legendaText2.setAttribute('style', "background-color: purple; color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
     legendaText2.setAttribute('title', "O Projeto Luiza será analisado por Rodrigo Lunardi.");
     legendaText2.setAttribute('readonly', "true");
@@ -89,18 +87,15 @@ function menuExtra() {
 
     //-----------------------------------------
 
-
-
-
     var quebraLinha6 = document.createElement('br');
-    legenda.appendChild(quebraLinha6);
+    legendaDiv2.appendChild(quebraLinha6);
     var quebraLinha7 = document.createElement('br');
-    legenda.appendChild(quebraLinha7);
+    legendaDiv2.appendChild(quebraLinha7);
 
     //-----------------------------------------
 
     var legendaText3 = document.createElement('input');
-    legenda.appendChild(legendaText3);
+    legendaDiv2.appendChild(legendaText3);
     legendaText3.setAttribute('style', "background-color: rgb(22, 96, 255); color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
     legendaText3.setAttribute('title', "Por gentileza seguir com os encaminhamentos conforme e-mail, para os QCs do projeto FUSION com solicitação de encaminhamento.");
     legendaText3.setAttribute('readonly', "true");
@@ -109,33 +104,40 @@ function menuExtra() {
     //-----------------------------------------
     
     var quebraLinha8 = document.createElement('br');
-    legenda.appendChild(quebraLinha8);
+    legendaDiv2.appendChild(quebraLinha8);
     var quebraLinha9 = document.createElement('br');
-    legenda.appendChild(quebraLinha9);
+    legendaDiv2.appendChild(quebraLinha9);
 
     //-----------------------------------------
 
     var legendaText4 = document.createElement('input');
-    legenda.appendChild(legendaText4);
+    legendaDiv2.appendChild(legendaText4);
     legendaText4.setAttribute('style', "background-color: rgb(22, 96, 255); color:white; cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px;");
     legendaText4.setAttribute('title', "Atentar-se na descrição detalhada e comentários se existe pedido de encaminhamento ou verificação com arquiteta");
     legendaText4.setAttribute('readonly', "true");
     legendaText4.setAttribute('value', "(FTTH)");
 
     //-----------------------------------------
-    
-    var legendaDiv = document.createElement('div');
-    legenda.appendChild(legendaDiv);
-    legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
 
+    /*
+    var quebraLinha11 = document.createElement('br');
+    legendaDiv2.appendChild(quebraLinha11);
+    var quebraLinha12 = document.createElement('br');
+    legendaDiv2.appendChild(quebraLinha12);
+     */
     var botaoDiv = document.createElement('button');
-    legendaDiv.appendChild(botaoDiv);
+    legendaDiv2.appendChild(botaoDiv);
     botaoDiv.setAttribute('style', "cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px; margin-top:10px");
     botaoDiv.setAttribute('id', "load");
     var inputTexto5 = document.createElement('LABEL');
     botaoDiv.appendChild(inputTexto5);
     inputTexto5.setAttribute('style', "cursor:pointer;")
     inputTexto5.innerHTML = "QCS analisados";
+
+
+    var legendaDiv = document.createElement('div');
+    legendaDiv2.appendChild(legendaDiv);
+    legendaDiv.setAttribute('style', "width: 100px; height: 100px;");
 
 
     function danone(){
@@ -147,20 +149,17 @@ function menuExtra() {
     document.getElementById("load").onclick = danone
 
     //-----------------------------------------
-    
-    
 
     var legendaDiv1 = document.createElement('div');
     legenda.appendChild(legendaDiv1);
     legendaDiv1.setAttribute('id', "legendaDiv1");
-    legendaDiv1.setAttribute('style', 'display:none;')
+    legendaDiv1.setAttribute('style', 'display:none; margin-left:450px;')
 
 
     var caixaTexto = document.createElement('textarea');
     legendaDiv1.appendChild(caixaTexto);
-
     caixaTexto.setAttribute('id', "divparateste");
-    caixaTexto.setAttribute('style', "width: 400px;height:100px;");
+    caixaTexto.setAttribute('style', "width: 550px;height:210px;");
     //####################################################
     
     //Seleciona a tabela onde o botão priorizar está
