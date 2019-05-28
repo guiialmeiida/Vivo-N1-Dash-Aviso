@@ -609,7 +609,7 @@ function main() {
             // Pinta os elementos importantes para ficar fácil a localização na tabela
            // Pinta os elementos importantes para ficar fácil a localização na tabela
             //aaaaaaaaaaaaaaaaaaaaaa
-            if (nome.data === meuStorage.getItem('nome')) //Seu nome
+       if (nome.data === meuStorage.getItem('nome')) //Seu nome
             {
                 contMe++;
                 defeitos.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
@@ -622,19 +622,12 @@ function main() {
                  // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
 
                 if (localStorage.getItem('qcsComigo') == null){
-                    localStorage.setItem('qcsComigo', 'inicializando' );
+                    localStorage.setItem('qcsComigo', 'ID - SISTEMA - PROJETO' );
                 }
                 qcsComigo.push(id.data + " - " + sistema.data + " - " + project.data);
                 var teste101 = meuStorage.getItem('qcsComigo');
 
-                for (var aa = 0; aa < qcsComigo.length; aa++){
-                  if (teste101.includes(qcsComigo[aa])){
-                      console.log('.')
-                  }else {
-                      localStorage.setItem('qcsComigo', teste101 + " \n "+ qcsComigo[aa] );
-                  }
-                }
-
+                // data aqui
                 var d = new Date();
                 var str = 'oi '+ d
                 var arrayData = str.split(" ");
@@ -642,13 +635,27 @@ function main() {
 
 
                 if (teste101.includes(recebeData)){
-                 console.log('.')
+                 //pass
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
-          
+
+                //fim data
+
+                var teste104 = teste101.split('#########');
+                var qcsHoje = teste104[teste104.length -1]
+                for (var aa = 0; aa < qcsComigo.length; aa++){
+                  if (qcsHoje.includes(qcsComigo[aa])){
+                      //pass
+                  }else {
+                      localStorage.setItem('qcsComigo', teste101 + " \n "+ qcsComigo[aa] );
+                  }
+                }     
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
+            
+            
+            
             if (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") {
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
