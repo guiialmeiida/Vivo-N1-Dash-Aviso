@@ -644,10 +644,7 @@ function main() {
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
-                
-                    document.getElementById('divparateste').innerHTML = "";
-                 	document.getElementById('divparateste').innerHTML = teste101;
-
+          
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
             if (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") {
@@ -746,6 +743,10 @@ function main() {
                     }
                 }
             }
+            
+           var teste102 = meuStorage.getItem('qcsComigo');
+           document.getElementById('divparateste').innerHTML = "";
+           document.getElementById('divparateste').innerHTML = teste102;
 
         }
 
