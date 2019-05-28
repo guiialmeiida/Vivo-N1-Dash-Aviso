@@ -137,9 +137,12 @@ function menuExtra() {
     inputTexto5.setAttribute('style', "cursor:pointer;")
     inputTexto5.innerHTML = "QCS analisados";
 
-    function danone(){
-    document.getElementById('legendaDiv1').style.display = 'flex';
 
+    function danone(){
+           document.getElementById('legendaDiv1').style.display = 'flex';
+           var teste102 = meuStorage.getItem('qcsComigo');
+           document.getElementById('divparateste').innerHTML = "";
+           document.getElementById('divparateste').innerHTML = teste102;
     }
     document.getElementById("load").onclick = danone
 
@@ -743,10 +746,7 @@ function main() {
                     }
                 }
             }
-            
-           var teste102 = meuStorage.getItem('qcsComigo');
-           document.getElementById('divparateste').innerHTML = "";
-           document.getElementById('divparateste').innerHTML = teste102;
+ 
 
         }
 
