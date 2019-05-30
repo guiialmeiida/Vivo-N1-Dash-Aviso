@@ -620,10 +620,13 @@ function main() {
 
 
                  // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
-
+                var nomePessoa = meuStorage.getItem('nome')
+                var primeiroNome = nomePessoa.split(" ")
+                primeiroNome =  " ######### Olá "+ primeiroNome[0] + " ######### ";
                 if (localStorage.getItem('qcsComigo') == null){
-                    localStorage.setItem('qcsComigo', 'ID - SISTEMA - PROJETO' );
+                    localStorage.setItem('qcsComigo', primeiroNome );
                 }
+                
                 qcsComigo.push(id.data + " - " + sistema.data + " - " + project.data);
                 var teste101 = meuStorage.getItem('qcsComigo');
 
