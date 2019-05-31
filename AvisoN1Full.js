@@ -190,11 +190,18 @@ function menuExtra() {
     inputTexto5.setAttribute('style', "cursor:pointer;")
     inputTexto5.innerHTML = "QCS analisados";
 
+    var aparece = "nao";
     function danone(){
+        if(aparece == "nao"){
            document.getElementById('legendaDiv1').style.display = 'flex';
            var teste102 = meuStorage.getItem('qcsComigo');
            document.getElementById('divparateste').innerHTML = "";
            document.getElementById('divparateste').innerHTML = teste102;
+           aparece = "sim"
+        } else {
+        document.getElementById('legendaDiv1').style.display = 'none';
+        aparece = "nao"
+        }
     }
     document.getElementById("botaoTexto").onclick = danone
 
