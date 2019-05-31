@@ -681,16 +681,16 @@ function main() {
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
-
+                var teste107 = meuStorage.getItem('qcsComigo');
                 //fim data
 
-                var teste104 = teste101.split('#########');
+                var teste104 = teste107.split('#########');
                 var qcsHoje = teste104[teste104.length -1]
                 for (var aa = 0; aa < qcsComigo.length; aa++){
                   if (qcsHoje.includes(qcsComigo[aa])){
                       //pass
                   }else {
-                      localStorage.setItem('qcsComigo', teste101 + " \n "+ qcsComigo[aa] );
+                      localStorage.setItem('qcsComigo', teste107 + " \n "+ qcsComigo[aa] );
                   }
                 }     
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
