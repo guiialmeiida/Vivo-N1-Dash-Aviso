@@ -1,30 +1,32 @@
-var tabela = document.getElementsByTagName('table'); //Retorna todas as tabelas como HTML Collection
-var tabela2 = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
-tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
+function id(elemento) {
+	return document.getElementById(elemento);
+}
 
-var defeitos = [];
-var sistemas = [];
-var qcs = [];
-var contMe = 0,
-    contOpen = 0,
-    contOpenComp = 0,
-    contDiminuiTotal = 0,
-    contSistema = 0,
-    contQcs = 0;
-var opcionalCores = "";
-var avisoOpcional = "";
-var avisoOpcionalMeusDefeitos = "";
-var backgroundDefAberto = "background-color:#D3DDEB";
-var fonteDefAberto = "color:black";
-var tempoVidaNotif = 5000;
-var monitorarQc = [""]; //teste colocar o id do defeito que deseja monitorar
-var qcsComigo = [""];
-//Chamada function principal
+function tagName(elemento) {
+	return document.getElementsByTagName(elemento);
+}
+
+function className(elemento) {
+	return document.getElementsByClassName(elemento);
+}
+
+stylePage()
+
+if(tagName('table')[2] != undefined){
 main();
+}else{menuExtra()}
+
+
+    var opcionalCores = "";
+    var avisoOpcional = "";
+    var avisoOpcionalMeusDefeitos = "";
+
+
+
 
 function menuExtra() {
-    
-                 //####################################################
+
+     //####################################################
 
     var legenda = document.getElementById("container");
       //-----------------------------------------
@@ -36,7 +38,7 @@ function menuExtra() {
     var legenda1Text = document.createElement('LABEL');
     legendaDiv2.appendChild(legenda1Text);
     legenda1Text.innerHTML = "LEGENDA DAS CORES";
-    legenda1Text.style = "Color: #FFFAFA; margin-left: 30px;";
+    legenda1Text.style = "Color: #FFFAFA; margin-left: 30px;font-family: sans-serif;";
     //-----------------------------------------
     var quebraLinha = document.createElement('br');
     legendaDiv2.appendChild(quebraLinha);
@@ -92,7 +94,33 @@ function menuExtra() {
     var quebraLinha7 = document.createElement('br');
     legendaDiv2.appendChild(quebraLinha7);
 
+    var linhaSepara = document.createElement('hr');
+    legendaDiv2.appendChild(linhaSepara);
+    linhaSepara.setAttribute('style', "background-color: white; color:white; cursor:pointer; width: 450px; margin-left: 30px;text-align: center; ");
+
     //-----------------------------------------
+     var botaoDiv = document.createElement('button');
+    legendaDiv2.appendChild(botaoDiv);
+    botaoDiv.setAttribute('style', "cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px; margin-top:10px; color: #212529;   background-color: #f8f9fa; border-color: #f8f9fa;padding: .375rem .75rem; border-radius: .25rem;");
+    botaoDiv.setAttribute('id', "botaoTexto");
+    var inputTexto5 = document.createElement('LABEL');
+    botaoDiv.appendChild(inputTexto5);
+    inputTexto5.setAttribute('style', "cursor:pointer;")
+    inputTexto5.innerHTML = "QCS analisados";
+    var aparece = "nao";
+    function danone(){
+        if(aparece == "nao"){
+           document.getElementById('legendaDiv1').style.display = 'flex';
+           var teste102 = meuStorage.getItem('qcsComigo');
+           document.getElementById('divparateste').innerHTML = "";
+           document.getElementById('divparateste').innerHTML = teste102;
+           aparece = "sim"
+        } else {
+        document.getElementById('legendaDiv1').style.display = 'none';
+        aparece = "nao"
+        }
+    }
+    document.getElementById("botaoTexto").onclick = danone
 
 
 
@@ -121,7 +149,7 @@ function menuExtra() {
     var legenda3Text = document.createElement('LABEL');
     legendaDiv3.appendChild(legenda3Text);
     legenda3Text.innerHTML = "PROJETOS PRIORITARIOS";
-    legenda3Text.style = "Color: #FFFAFA; margin-left: 30px;";
+    legenda3Text.style = "Color: #FFFAFA; margin-left: 30px; font-family: sans-serif;";
     //-----------------------------------------
     var quebraLinha15 = document.createElement('br');
     legendaDiv3.appendChild(quebraLinha15);
@@ -181,33 +209,9 @@ function menuExtra() {
     caixaTexto.setAttribute('style', "width: 550px;height:210px;");
 
 
-    var botaoDiv = document.createElement('button');
-    legenda.appendChild(botaoDiv);
-    botaoDiv.setAttribute('style', "cursor:pointer; border: 1px solid #fff; width: 150px; margin-left: 30px;text-align: center; padding: 1px; margin-top:10px; position: absolute;right: 10px");
-    botaoDiv.setAttribute('id', "botaoTexto");
-    var inputTexto5 = document.createElement('LABEL');
-    botaoDiv.appendChild(inputTexto5);
-    inputTexto5.setAttribute('style', "cursor:pointer;")
-    inputTexto5.innerHTML = "QCS analisados";
-
-    var aparece = "nao";
-    function danone(){
-        if(aparece == "nao"){
-           document.getElementById('legendaDiv1').style.display = 'flex';
-           var teste102 = meuStorage.getItem('qcsComigo');
-           document.getElementById('divparateste').innerHTML = "";
-           document.getElementById('divparateste').innerHTML = teste102;
-           aparece = "sim"
-        } else {
-        document.getElementById('legendaDiv1').style.display = 'none';
-        aparece = "nao"
-        }
-    }
-    document.getElementById("botaoTexto").onclick = danone
-
 
     //####################################################
-    
+
     //Seleciona a tabela onde o botão priorizar está
     var botoes = document.getElementById("fDefectsList:pgBtnPriorizar");
     botoes = botoes.childNodes[1];
@@ -561,6 +565,25 @@ function link(projectRef, project, domain, id) {
 
 
 function main() {
+    var tabela = document.getElementsByTagName('table'); //Retorna todas as tabelas como HTML Collection
+    var tabela2 = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
+    tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
+    var defeitos = [];
+    var sistemas = [];
+    var qcs = [];
+    var contMe = 0,
+        contOpen = 0,
+        contOpenComp = 0,
+        contDiminuiTotal = 0,
+        contSistema = 0,
+        contQcs = 0;
+    var backgroundDefAberto = "background-color:#D3DDEB";
+    var fonteDefAberto = "color:black";
+    var tempoVidaNotif = 5000;
+    var monitorarQc = [""]; //teste colocar o id do defeito que deseja monitorar
+    var qcsComigo = [""];
+
+
     try {
         var sistemasx = menuExtra();
         var meuStorage = localStorage;
@@ -603,8 +626,8 @@ function main() {
             var projectRef = linha.childNodes[3];
             var domainRef = linha.childNodes[2];
             var releaseRef = linha.childNodes[4];
-           
-           
+
+
             if (releaseRef.childNodes.length !== 0) {
                 var release = releaseRef.childNodes[0];
                 var releaseArray = release.data.split(" ");
@@ -668,11 +691,11 @@ function main() {
                  // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
                 var nomePessoa = meuStorage.getItem('nome')
                 var primeiroNome = nomePessoa.split(" ")
-                primeiroNome =  " ######### Olá "+ primeiroNome[0] + " ######### ";
+                primeiroNome =  "  ######### Olá "+ primeiroNome[0] + " ######### ";
                 if (localStorage.getItem('qcsComigo') == null){
                     localStorage.setItem('qcsComigo', primeiroNome );
                 }
-                
+
                 qcsComigo.push(id.data + " - " + sistema.data + " - " + project.data);
                 var teste101 = meuStorage.getItem('qcsComigo');
 
@@ -684,12 +707,13 @@ function main() {
 
 
                 if (teste101.includes(recebeData)){
-                 //pass
+                 // pass
                 }else {
                  localStorage.setItem('qcsComigo', teste101 + " \n "+ recebeData );
                 }
                 var teste107 = meuStorage.getItem('qcsComigo');
                 //fim data
+
 
                 var teste104 = teste107.split('#########');
                 var qcsHoje = teste104[teste104.length -1]
@@ -699,12 +723,12 @@ function main() {
                   }else {
                       localStorage.setItem('qcsComigo', teste107 + " \n "+ qcsComigo[aa] );
                   }
-                }     
+                }
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
-            
-            
-            
+
+
+
             if (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") {
                 //console.log("contOpen++");
                 contOpen++; //Conta quantos defeitos estão como QA N1
@@ -801,7 +825,7 @@ function main() {
                     }
                 }
             }
- 
+
 
         }
 
@@ -876,4 +900,11 @@ function main() {
         }
         console.log(err);
     }
+}
+
+
+function stylePage(){
+
+className('ui-button')[0].style.display = "none";
+
 }
