@@ -828,7 +828,14 @@ function main() {
 
 
         }
-
+        var contOpenVermelho = document.createElement('span');
+        contOpenVermelho.setAttribute('style', "color: red");
+        contOpenVermelho.innerHTML = contOpen
+        className('ui-datatable-header')[0].childNodes[8].textContent = ' SEM ATENDIMENTO: '
+        className('ui-datatable-header')[0].appendChild(contOpenVermelho);
+        var finalCont = document.createElement('span');
+        finalCont.innerHTML = ')'
+        className('ui-datatable-header')[0].appendChild(finalCont);
 
         // ---------------------------------------------------""""AQUI AVISOS""""----------------------------------------------------------------
         var tit = 'limpo';
