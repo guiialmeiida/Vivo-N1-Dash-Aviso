@@ -203,10 +203,10 @@ function menuExtra() {
     legenda.appendChild(legendaDiv1);
     legendaDiv1.setAttribute('id', "legendaDiv1");
     legendaDiv1.setAttribute('style', 'display:none; margin-left:650px;')
-    var caixaTexto = document.createElement('textarea');
+    var caixaTexto = document.createElement('div');
     legendaDiv1.appendChild(caixaTexto);
     caixaTexto.setAttribute('id', "divparateste");
-    caixaTexto.setAttribute('style', "width: 550px;height:210px;");
+    caixaTexto.setAttribute('style', "width: 650px;height:210px;overflow: auto;border: 1px solid blue;padding: 2px;text-align: justify;background: white;white-space: pre-wrap;");
 
 
 
@@ -696,14 +696,15 @@ function main() {
                     localStorage.setItem('qcsComigo', primeiroNome );
                 }
 
-                qcsComigo.push(id.data + " - " + sistema.data + " - " + project.data);
+                qcsComigo.push("<a href='"+ idRef + " ' target='_blank' title='Abrir histórico do defeito'>"+ id.data+"</a>" + " - " + sistema.data + " - " + project.data);
+
                 var teste101 = meuStorage.getItem('qcsComigo');
 
                 // data aqui
                 var d = new Date();
                 var str = 'oi '+ d
                 var arrayData = str.split(" ");
-                var recebeData =" ######### " + arrayData[2]+' '+arrayData[3]+' '+arrayData[4] + " ######### "
+                var recebeData ="\n ######### " + arrayData[3]+'/'+arrayData[2]+'/'+arrayData[4] + " ######### "
 
 
                 if (teste101.includes(recebeData)){
@@ -721,7 +722,7 @@ function main() {
                   if (qcsHoje.includes(qcsComigo[aa])){
                       //pass
                   }else {
-                      localStorage.setItem('qcsComigo', teste107 + " \n "+ qcsComigo[aa] );
+                      localStorage.setItem('qcsComigo', teste107 + " \n"+ qcsComigo[aa] );
                   }
                 }
                 // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
