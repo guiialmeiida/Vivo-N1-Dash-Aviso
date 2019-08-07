@@ -761,14 +761,25 @@ function main() {
                     }
                 }
             }
-            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            //####################################### CORES SLA
+
+            //SLA ATENDIMENTO
+            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:goldenrod; color: black";
-
             }
-            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || status.data === "Open") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
                 slaRef.style = "background-color:tomato; color: black";
-
             }
+
+            //SLA ENCAMINHAMENTO
+            if ( slaData >= 35 && (nome.data != "Compasso N1" || nome.data === "QA N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+                slaRef.style = "background-color:goldenrod; color: black";
+            }
+            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 45 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+                slaRef.style = "background-color:tomato; color: black";
+            }
+
+            //####################################### FIM CORES SLA
 
             for (cont = 0; cont < sistemasx.length; cont++) {
                 if (triagem === 'sim') {
@@ -798,12 +809,6 @@ function main() {
                     qcs.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
                     contQcs++;
                 }
-            }
-	    if ( slaData >= 35 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
-                slaRef.style = "background-color:goldenrod; color: black";
-            }
-            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 45 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
-                slaRef.style = "background-color:tomato; color: black";
             }
             if (severity.data === "4-Show Stopper" && opcionalCores === "yes") {
                 severityRef.style = "font-weight: bold; color:red";
