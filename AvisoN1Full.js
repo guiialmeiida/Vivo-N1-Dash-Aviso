@@ -799,6 +799,9 @@ function main() {
                     contQcs++;
                 }
             }
+	    if ( slaData >= 35 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+                slaRef.style = "background-color:goldenrod; color: black";
+            }
             if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 45 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
                 slaRef.style = "background-color:tomato; color: black";
             }
