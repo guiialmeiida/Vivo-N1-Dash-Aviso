@@ -639,7 +639,7 @@ function main() {
                 if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("2075-Unified") || releaseArray.includes("(Chorinho)")) {
                     releaseRef.style = "color: red; font-weight: bold";
                 }
-                if (releaseArray.includes("Fusion") || releaseArray.includes("(FTTH)")) {
+                if (releaseArray.includes("Fusion") || releaseArray.includes("3635-Fusion") ||releaseArray.includes("(FTTH)")) {
                     releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
                 }
             }
