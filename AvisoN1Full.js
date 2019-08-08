@@ -725,7 +725,7 @@ function main() {
                       localStorage.setItem('qcsComigo', teste107 + " \n"+ qcsComigo[aa] );
                   }
                 }
-                // NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
+                // FIM NOVA IMPLEMENTAÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ******************##########################
             }
 
 
@@ -761,6 +761,7 @@ function main() {
                     }
                 }
             }
+		
             //####################################### CORES SLA
 
             //SLA ATENDIMENTO
@@ -772,8 +773,8 @@ function main() {
             }
 
             //SLA ENCAMINHAMENTO
-            if ( slaData >= 35 && (nome.data != "Compasso N1" || nome.data === "QA N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
-                slaRef.style = "background-color:goldenrod; color: black";
+            if ( slaData >= 35 && nome.data != "QA N1" && nome.data != "Compasso N1" && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+                 slaRef.style = "background-color:goldenrod; color: black";
             }
             if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 45 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
                 slaRef.style = "background-color:tomato; color: black";
