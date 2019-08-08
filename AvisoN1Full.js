@@ -569,6 +569,7 @@ function main() {
     var tabela2 = tabela[2]; // Selectiona a tabela que precisamos no caso a 3ª
     tabela = tabela2.childNodes[2]; //Selectiona o 3º childNode da tabela onde está as linhas
     var defeitos = [];
+    var pandoras =[];
     var sistemas = [];
     var qcs = [];
     var contMe = 0,
@@ -576,7 +577,8 @@ function main() {
         contOpenComp = 0,
         contDiminuiTotal = 0,
         contSistema = 0,
-        contQcs = 0;
+        contQcs = 0,
+        contPandora = 0;
     var backgroundDefAberto = "background-color:#D3DDEB";
     var fonteDefAberto = "color:black";
     var tempoVidaNotif = 5000;
@@ -633,7 +635,12 @@ function main() {
                 var releaseArray = release.data.split(" ");
                 var releaseData = parseInt(releaseArray[0]);
 
-                if (releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
+                if (releaseArray.includes('[PANDORA') && (nome.data === "Compasso N1" || nome.data === "QA N1") ) {
+                    releaseRef.style = "color: purple; font-weight: bold";
+                    contPandora++;
+                    pandoras.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
+                }
+                if ( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
                     releaseRef.style = "color: purple; font-weight: bold";
                 }
                 if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("2075-Unified") || releaseArray.includes("(Chorinho)")) {
@@ -642,6 +649,8 @@ function main() {
                 if (releaseArray.includes("Fusion") || releaseArray.includes("3635-Fusion") ||releaseArray.includes("(FTTH)")) {
                     releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
                 }
+
+
             }
             //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
@@ -675,7 +684,7 @@ function main() {
             meuStorage = localStorage;
             var placeHolder = meuStorage.getItem('nome');
 
-            // Pinta os elementos importantes para ficar fácil a localização na tabela
+    
            // Pinta os elementos importantes para ficar fácil a localização na tabela
             //aaaaaaaaaaaaaaaaaaaaaa
        if (nome.data === meuStorage.getItem('nome')) //Seu nome
@@ -890,6 +899,13 @@ function main() {
                 text: "Detalhado(s): " + defeitos,
                 timeout: tempoVidaNotif,
                 title: "MEUS QC'S"
+            });
+        }
+        if ((meuStorage.getItem('nome') === "Hemili Roberta Acker Constantino" || meuStorage.getItem('nome') === "Ghiancarlo Weimann" || meuStorage.getItem('nome') === "Thaua Correa Martins") && contPandora !== 0) {
+           GM_notification({
+                text: contPandora + " defeito(s) do PANDORA em aberto: " + pandoras,
+                timeout: tempoVidaNotif,
+                title: "PANDORAAAAAAAAAAAA"
             });
         }
         /*if (contQcs !== 0) {
