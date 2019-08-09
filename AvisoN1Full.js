@@ -772,23 +772,23 @@ function main() {
             }
 		
             //####################################### CORES SLA
-
+            if(opcionalCores === "yes"){
             //SLA ATENDIMENTO
-            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            if (slaData >= 20 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)") {
                 slaRef.style = "background-color:goldenrod; color: black";
             }
-            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)" && opcionalCores === "yes") {
+            if (slaData >= 30 && (nome.data === "QA N1" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1") && slaArray[1] === "Minute(s)") {
                 slaRef.style = "background-color:tomato; color: black";
             }
 
             //SLA ENCAMINHAMENTO
-            if ( slaData >= 35 && nome.data != "QA N1" && nome.data != "Compasso N1" && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+            if (slaData >= 35 && nome.data != "QA N1" && nome.data != "Compasso N1" && nome.data != "QA Gestao Ambientes" && slaArray[1] === "Minute(s)") {
                  slaRef.style = "background-color:goldenrod; color: black";
             }
-            if (slaData >= 1 && slaArray[1] === "Hour(s)" && opcionalCores === "yes" || slaData >= 45 && slaArray[1] === "Minute(s)" && opcionalCores === "yes" ) {
+            if (slaData >= 1 && slaArray[1] === "Hour(s)" || slaData >= 1 && slaArray[1] === "Day(s)" || slaData >= 45 && slaArray[1] === "Minute(s)") {
                 slaRef.style = "background-color:tomato; color: black";
             }
-
+            }
             //####################################### FIM CORES SLA
 
             for (cont = 0; cont < sistemasx.length; cont++) {
