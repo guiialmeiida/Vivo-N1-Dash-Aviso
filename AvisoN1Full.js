@@ -96,7 +96,7 @@ function menuExtra() {
 
     var linhaSepara = document.createElement('hr');
     legendaDiv2.appendChild(linhaSepara);
-    linhaSepara.setAttribute('style', "background-color: white; color:white; cursor:pointer; width: 450px; margin-left: 30px;text-align: center; ");
+    linhaSepara.setAttribute('style', "background-color: white; color:white;  width: 450px; margin-left: 30px;text-align: center; ");
 
     //-----------------------------------------
      var botaoDiv = document.createElement('button');
@@ -243,6 +243,10 @@ function menuExtra() {
     botoes.appendChild(botoesRef);
     botoesRef = document.createElement('td');
     botoes.appendChild(botoesRef);
+    botoesRef = document.createElement('td');
+    botoes.appendChild(botoesRef);
+    botoesRef = document.createElement('td');
+    botoes.appendChild(botoesRef);
 
     //Seleciona o novo td
     var colunas = botoes.childNodes[5],
@@ -257,7 +261,11 @@ function menuExtra() {
         colunas9 = botoes.childNodes[16],
         colunas10 = botoes.childNodes[17],
         colunas11 = botoes.childNodes[14],
-        colunas12 = botoes.childNodes[15];
+		colunas12 = botoes.childNodes[15],
+		colunas13 = botoes.childNodes[16],
+		colunas15 = botoes.childNodes[18],
+		colunas14 = botoes.childNodes[19];
+
     //Cria um campo input
     var inputText = document.createElement('input');
     colunas.appendChild(inputText);
@@ -274,17 +282,17 @@ function menuExtra() {
 
     var input5Text = document.createElement('LABEL');
     colunas5.appendChild(input5Text);
-    input5Text.innerHTML = "Aviso:";
+    input5Text.innerHTML = "|Aviso:";
     input5Text.style = "Color: #FFFAFA ";
 
     var input6Text = document.createElement('LABEL');
     colunas6.appendChild(input6Text);
-    input6Text.innerHTML = "Aviso meus QC's:";
+    input6Text.innerHTML = "|Aviso meus QC's:";
     input6Text.style = "Color: #FFFAFA ";
 
     var input9Text = document.createElement('LABEL');
     colunas9.appendChild(input9Text);
-    input9Text.innerHTML = "Ambientes:";
+    input9Text.innerHTML = "|Ambientes:";
     input9Text.style = "Color: #FFFAFA ";
 
 
@@ -294,8 +302,13 @@ function menuExtra() {
 
     var input11Text = document.createElement('LABEL');
     colunas11.appendChild(input11Text);
-    input11Text.innerHTML = "Triagem:";
+    input11Text.innerHTML = "|Triagem:";
     input11Text.style = "Color: #FFFAFA ";
+
+	var input29Text = document.createElement('LABEL');
+    colunas15.appendChild(input29Text);
+    input29Text.innerHTML = "|Ticket Manager:";
+    input29Text.style = "Color: #FFFAFA; border ";
 
     //===========================================================================================================
 
@@ -334,6 +347,42 @@ function menuExtra() {
         optionAmbientes = "nao";
     }
 
+    //===========================================================================================================
+
+    //check ticket
+	var input120Text = document.createElement('input'); // checkbox
+    colunas14.appendChild(input120Text); // checkbox
+    input120Text = colunas14.childNodes[0]; // checkbox
+    input120Text.type = "checkbox";
+    input120Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
+    input120Text.setAttribute('id', "ambientesBug");
+    var ok129 = meuStorage.getItem('ok129');
+    if (ok129 === null || ok129 === "" || ok129 === "false") {
+        ok129 = "false";
+        input120Text.checked = false;
+    } else {
+        ok129 = "true";
+        input120Text.checked = true;
+    }
+    input120Text.onclick = function() {
+        var okBo129 = "";
+        if (ok129 === "false") {
+
+            okBo129 = "true";
+        } else {
+            ok129 = "true";
+
+            okBo129 = "false";
+        }
+        meuStorage.setItem('ok129', okBo129);
+        window.location.reload(1);
+    };
+    if (ok129 === "true") {
+        var optionAmbientesBug = "sim"; //Yes para os avisos na área de trabalho
+    } else {
+        optionAmbientesBug = "nao";
+    }
+
 
     //===========================================================================================================
 
@@ -344,6 +393,7 @@ function menuExtra() {
     input12Text = colunas12.childNodes[0]; // checkbox
     input12Text.type = "checkbox";
     input12Text.setAttribute('style', "cursor: pointer; height: 20px;width: 20px;");
+	input12Text.setAttribute('id', "triagem");
     meuStorage = localStorage;
     var ok12 = meuStorage.getItem('ok12');
     if (ok12 === null || ok12 === "" || ok12 === "false") {
@@ -578,6 +628,7 @@ function main() {
         contDiminuiTotal = 0,
         contSistema = 0,
         contQcs = 0,
+        contTicket = 0,
         contPandora = 0;
     var backgroundDefAberto = "background-color:#D3DDEB";
     var fonteDefAberto = "color:black";
@@ -591,6 +642,7 @@ function main() {
         var meuStorage = localStorage;
         var ok109 = meuStorage.getItem('ok109');
         var ok12 = meuStorage.getItem('ok12');
+		var ok129 = meuStorage.getItem('ok129');
         var optionTriagem = "nao";
         var optionAmbientes = "nao";
         if (ok109 === "true") {
@@ -601,6 +653,11 @@ function main() {
             optionTriagem = "sim";
         }
         var triagem = optionTriagem;
+		var optionAmbientesBug = "nao";
+                 if (ok129 === "true") {
+                    optionAmbientesBug = "sim";
+                 }
+        var ambientesBug = optionAmbientesBug;
         //For principal, onde vai percorer cada linha por vez
         for (var i = 0; i < tabela.childNodes.length; i++) {
             //Seleciona os elementos em questão dentro da linha
@@ -616,11 +673,18 @@ function main() {
                 var sla = slaRef.childNodes[0];
                 var status = linha.childNodes[9];
                 status = status.childNodes[0];
+				var type = linha.childNodes[11];
+                type = type.childNodes[0];
+                document.getElementById("triagem").checked = false
+                document.getElementById("triagem").disabled = true
+                meuStorage.setItem('ok12', "false");
             } else {
                 slaRef = linha.childNodes[9];
                 sla = slaRef.childNodes[0];
                 status = linha.childNodes[10];
                 status = status.childNodes[0];
+				document.getElementById("ambientesBug").checked = false
+				document.getElementById("ambientesBug").disabled = true
             }
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
@@ -684,7 +748,7 @@ function main() {
             meuStorage = localStorage;
             var placeHolder = meuStorage.getItem('nome');
 
-    
+
            // Pinta os elementos importantes para ficar fácil a localização na tabela
             //aaaaaaaaaaaaaaaaaaaaaa
        if (nome.data === meuStorage.getItem('nome')) //Seu nome
@@ -770,7 +834,7 @@ function main() {
                     }
                 }
             }
-		
+
             //####################################### CORES SLA
             if(opcionalCores === "yes"){
             //SLA ATENDIMENTO
@@ -782,6 +846,7 @@ function main() {
             }
 
             //SLA ENCAMINHAMENTO
+            if ( ambientes == "nao"){
             if (slaData >= 35 && nome.data != "QA N1" && nome.data != "Compasso N1" && nome.data != "QA Gestao Ambientes" && slaArray[1] === "Minute(s)") {
                  slaRef.style = "background-color:goldenrod; color: black";
             }
@@ -789,6 +854,20 @@ function main() {
                 slaRef.style = "background-color:tomato; color: black";
             }
             }
+            if ( ambientes == "sim"){
+            if (slaData >= 80 && nome.data != "QA N1" && nome.data != "Compasso N1" && nome.data != "QA Gestao Ambientes" && slaArray[1] === "Minute(s)") {
+                 slaRef.style = "background-color:goldenrod; color: black";
+            }
+            if (slaData >= 2 && slaArray[1] === "Hour(s)" || slaData >= 1 && slaArray[1] === "Day(s)" || slaData >= 90 && slaArray[1] === "Minute(s)") {
+                slaRef.style = "background-color:tomato; color: black";
+            }
+            }
+
+
+
+
+            }
+
             //####################################### FIM CORES SLA
 
             for (cont = 0; cont < sistemasx.length; cont++) {
@@ -845,6 +924,15 @@ function main() {
                 }
             }
 
+			 if (ambientes == "sim" && ambientesBug == "sim") {
+                 if (nome.data === "QA Gestao Ambientes" && type.data === "Bug" && status.data != "Ready to Application") {
+                    linha.style = "background-color:tomato; color: black";
+                    idRef.style = "color:black";
+                    link.style = backgroundDefAberto + ";" + fonteDefAberto;
+                    linha.childNodes[0].style = "background-color:#8defd1; color: black";
+                    contTicket++;
+                }
+             }
 
         }
         var contOpenVermelho = document.createElement('span');
@@ -901,11 +989,19 @@ function main() {
                 title: "MEUS QC'S"
             });
         }
-        if ((meuStorage.getItem('nome') === "Hemili Roberta Acker Constantino" || meuStorage.getItem('nome') === "Ghiancarlo Weimann" || meuStorage.getItem('nome') === "Thaua Correa Martins") && contPandora !== 0) {
+        if ((meuStorage.getItem('nome') === "Hemili Roberta Acker Constantino" || meuStorage.getItem('nome') === "Ghiancarlo Weimann") && contPandora !== 0) {
            GM_notification({
                 text: contPandora + " defeito(s) do PANDORA em aberto: " + pandoras,
                 timeout: tempoVidaNotif,
                 title: "PANDORAAAAAAAAAAAA"
+            });
+        }
+
+        if (contTicket !== 0){
+                GM_notification({
+                text: "Bugs sem atendimento na fila",
+                timeout: tempoVidaNotif,
+                title: "TICKET MANAGER"
             });
         }
         /*if (contQcs !== 0) {
