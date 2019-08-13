@@ -693,30 +693,7 @@ function main() {
             var domainRef = linha.childNodes[2];
             var releaseRef = linha.childNodes[4];
 
-
-            if (releaseRef.childNodes.length !== 0) {
-                var release = releaseRef.childNodes[0];
-                var releaseArray = release.data.split(" ");
-                var releaseData = parseInt(releaseArray[0]);
-
-                if (releaseArray.includes('[PANDORA') && (nome.data === "Compasso N1" || nome.data === "QA N1") ) {
-                    releaseRef.style = "color: purple; font-weight: bold";
-                    contPandora++;
-                    pandoras.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
-                }
-                if ( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
-                    releaseRef.style = "color: purple; font-weight: bold";
-                }
-                if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("2075-Unified") || releaseArray.includes("(Chorinho)")) {
-                    releaseRef.style = "color: red; font-weight: bold";
-                }
-                if (releaseArray.includes("Fusion") || releaseArray.includes("3635-Fusion") ||releaseArray.includes("(FTTH)")) {
-                    releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
-                }
-
-
-            }
-            //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
+	    //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
                 var sistema = sistemaRef.childNodes[0];
             } else {
@@ -742,7 +719,30 @@ function main() {
                 severity.data = "Sem prioridade";
             }
 
+		
+            if (releaseRef.childNodes.length !== 0) {
+                var release = releaseRef.childNodes[0];
+                var releaseArray = release.data.split(" ");
+                var releaseData = parseInt(releaseArray[0]);
 
+                if (releaseArray.includes('[PANDORA') && (nome.data === "Compasso N1" || nome.data === "QA N1") ) {
+                    releaseRef.style = "color: purple; font-weight: bold";
+                    contPandora++;
+                    pandoras.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
+                }
+                if ( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
+                    releaseRef.style = "color: purple; font-weight: bold";
+                }
+                if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("2075-Unified") || releaseArray.includes("(Chorinho)")) {
+                    releaseRef.style = "color: red; font-weight: bold";
+                }
+                if (releaseArray.includes("Fusion") || releaseArray.includes("3635-Fusion") ||releaseArray.includes("(FTTH)")) {
+                    releaseRef.style = "color: rgb(22, 96, 255); font-weight: bold";
+                }
+
+
+            }
+            
             link(projectRef, project, domain, id);
 
             meuStorage = localStorage;
