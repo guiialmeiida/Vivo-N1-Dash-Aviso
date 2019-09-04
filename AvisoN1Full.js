@@ -112,8 +112,10 @@ function menuExtra() {
         if(aparece == "nao"){
            document.getElementById('legendaDiv1').style.display = 'flex';
            var teste102 = meuStorage.getItem('qcsComigo');
-           document.getElementById('divparateste').innerHTML = "";
-           document.getElementById('divparateste').innerHTML = teste102;
+           id('divparateste').innerHTML = "";
+           id('divparateste').innerHTML = teste102;
+           var objDiv = id("divparateste");
+           objDiv.scrollTop = objDiv.scrollHeight;
            aparece = "sim"
         } else {
         document.getElementById('legendaDiv1').style.display = 'none';
