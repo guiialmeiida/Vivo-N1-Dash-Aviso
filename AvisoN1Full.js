@@ -605,14 +605,15 @@ function menuExtra() {
     return sistemasarray;
 }
 
-function link(projectRef, project, domain, id) {
+
+function link(projectRef, project, id) {
     //Montagem do elemento link, do ALM, dentro do elemento project em cada linha
     var link = document.createElement('a');
     projectRef.removeChild(project);
     projectRef.appendChild(link);
     link = projectRef.childNodes[0];
     link.text = project.data;
-    link.href = "td://" + project.data + "." + domain.data + ".alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID=" + id.data;
+    link.href = "td://" + project.data + ".QA_QA.alm.vivo.com.br/qcbin/DefectsModule-000000004243046514?EntityType=IBug&&EntityID=" + id.data;
 }
 
 
@@ -669,7 +670,7 @@ function main() {
             var id = linha.childNodes[1];
             var idRef = id.childNodes[0];
             id = idRef.childNodes[0];
-            var sistemaRef = linha.childNodes[5];
+            var sistemaRef = linha.childNodes[4];
             if (ambientes == "sim") {
                 var slaRef = linha.childNodes[8];
                 var sla = slaRef.childNodes[0];
@@ -691,8 +692,8 @@ function main() {
             var slaArray = sla.data.split(" ");
             var slaData = parseInt(slaArray[0]);
             var severityRef = linha.childNodes[7];
-            var projectRef = linha.childNodes[3];
-            var domainRef = linha.childNodes[2];
+            var projectRef = linha.childNodes[2];
+           // var domainRef = linha.childNodes[2];
             var releaseRef = linha.childNodes[4];
 
 	    //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
@@ -702,12 +703,12 @@ function main() {
                 sistema = sistemaRef;
                 sistema.data = "Sem sistema";
             }
-            if (domainRef.childNodes.length !== 0) {
+            /*if (domainRef.childNodes.length !== 0) {
                 var domain = domainRef.childNodes[0];
             } else {
                 domain = domainRef;
                 domain.data = "Sem dominio";
-            }
+            }*/
             if (projectRef.childNodes.length !== 0) {
                 var project = projectRef.childNodes[0];
             } else {
@@ -745,7 +746,7 @@ function main() {
 
             }
             
-            link(projectRef, project, domain, id);
+            link(projectRef, project, id);
 
             meuStorage = localStorage;
             var placeHolder = meuStorage.getItem('nome');
@@ -940,7 +941,7 @@ function main() {
         var contOpenVermelho = document.createElement('span');
         contOpenVermelho.setAttribute('style', "color: red");
         contOpenVermelho.innerHTML = contOpen
-        className('ui-datatable-header')[0].childNodes[8].textContent = ' SEM ATENDIMENTO: '
+        className('ui-datatable-header')[0].childNodes[6].textContent = ' SEM ATENDIMENTO: '
         className('ui-datatable-header')[0].appendChild(contOpenVermelho);
         var finalCont = document.createElement('span');
         finalCont.innerHTML = ')'
