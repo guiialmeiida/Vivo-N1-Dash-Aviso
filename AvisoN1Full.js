@@ -875,7 +875,7 @@ function main() {
 
             for (cont = 0; cont < sistemasx.length; cont++) {
                 if (triagem === 'sim') {
-                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject" || nome.data === "QA Gestao Ambientes" || nome.data === "Compasso N1")) {
+                    if (opcionalCores === "yes" && sistema.data === sistemasx[cont] && (nome.data === "Compasso N1")) {
                         sistemaRef.style = "color:green;font-weight: bold";
                         idRef.style = "color:green;font-weight: bold";
                     }
@@ -913,13 +913,7 @@ function main() {
                     linha.childNodes[0].style = "background-color:#8defd1; color: black";
                 }
             }
-            if (triagem === 'sim') {
-                if (nome.data === "QA N1" && status.data === "Reopened" || nome.data === "QA N1" && status.data === "Pending Reject") {
-                    if (opcionalCores === "yes") {
-                        linha.childNodes[0].style = "background-color:#8defd1; color: black";
-                    }
-                }
-            } else {
+           if (triagem !== 'sim')  {
                 if (nome.data === "QA N1") {
                     if (opcionalCores === "yes") {
                         linha.childNodes[0].style = "background-color:#8defd1; color: black";
