@@ -694,7 +694,7 @@ function main() {
             var severityRef = linha.childNodes[7];
             var projectRef = linha.childNodes[2];
            // var domainRef = linha.childNodes[2];
-            var releaseRef = linha.childNodes[4];
+            var releaseRef = linha.childNodes[3];
 
 	    //If's dos elementos para verificar se está vazio, evitando que o plugin pare de funcionar
             if (sistemaRef.childNodes.length !== 0) {
