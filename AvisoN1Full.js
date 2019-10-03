@@ -728,7 +728,7 @@ function main() {
                 var releaseArray = release.data.split(" ");
                 var releaseData = parseInt(releaseArray[0]);
 
-                if (releaseArray.includes('[PANDORA') && (nome.data === "Compasso N1" || nome.data === "QA N1") ) {
+                if ((releaseArray.includes('[PANDORA') || releaseArray.includes('Pandora')) && (nome.data === "Compasso N1" || nome.data === "QA N1") ) {
                     releaseRef.style = "color: purple; font-weight: bold";
                     contPandora++;
                     pandoras.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
