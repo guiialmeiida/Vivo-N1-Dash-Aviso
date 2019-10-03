@@ -733,7 +733,7 @@ function main() {
                     contPandora++;
                     pandoras.push(" \n" + id.data + " - " + sistema.data + " - " + sla.data);
                 }
-                if ( releaseArray.includes('[PANDORA') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
+                if ( releaseArray.includes('[PANDORA') || releaseArray.includes('Pandora') || releaseArray.includes('4980-[LUIZA') || releaseArray.includes('[Luiza') || releaseArray.includes('[LUIZA') || releaseArray.includes('4591-[LUIZA')) {
                     releaseRef.style = "color: purple; font-weight: bold";
                 }
                 if (releaseArray.includes("SVAs") || releaseArray.includes("Chorinho") || releaseArray.includes("2075-Unified") || releaseArray.includes("(Chorinho)")) {
